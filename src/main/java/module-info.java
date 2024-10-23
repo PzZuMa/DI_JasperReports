@@ -4,6 +4,7 @@ module org.example.retoconjuntohibernate {
     requires org.hibernate.orm.core;
     requires static lombok;
     requires java.desktop;
+    requires jakarta.persistence;
 
     opens org.example.retoconjuntohibernate to javafx.fxml;
     exports org.example.retoconjuntohibernate;
