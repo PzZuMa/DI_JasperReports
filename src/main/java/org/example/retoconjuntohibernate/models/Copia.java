@@ -2,15 +2,14 @@ package org.example.retoconjuntohibernate.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "Copia")
-public class Copia {
+public class Copia implements Serializable {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -21,12 +20,7 @@ public class Copia {
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario idUsuario;
 
-    @Lob
-    @Column(name = "estado")
     private String estado;
-
-    @Lob
-    @Column(name = "soporte")
     private String soporte;
 
 }

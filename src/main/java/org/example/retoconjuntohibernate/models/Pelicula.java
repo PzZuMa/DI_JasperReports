@@ -1,34 +1,20 @@
 package org.example.retoconjuntohibernate.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "Pelicula")
-public class Pelicula {
+public class Pelicula implements Serializable {
     @Id
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "titulo", length = 50)
     private String titulo;
-
-    @Column(name = "genero", length = 50)
     private String genero;
-
-    @Column(name = "`año`")
     private Integer año;
-
-    @Column(name = "descripcion", length = 250)
     private String descripcion;
-
-    @Column(name = "director", length = 50)
     private String director;
 
 }

@@ -9,7 +9,7 @@ https://github.com/hibernate/dtd/blob/main/hibernate-configuration-3.0.dtd
 <hibernate-configuration>
     <session-factory>
 
-        <property name="connection.url">jdbc:mysql://localhost:3306/gestorJuegos</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernateConjuntoDB</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!-- <property name="connection.username">root</property> -->
         <!-- <property name="connection.password">1234</property> -->
@@ -17,8 +17,9 @@ https://github.com/hibernate/dtd/blob/main/hibernate-configuration-3.0.dtd
 
         <property name="show_sql">true</property>
 
-<!--        <mapping class="org.example.Game"/>-->
-<!--        <mapping class="org.example.User"/>-->
+        <mapping class="org.example.retoconjuntohibernate.models.Usuario"/>
+        <mapping class="org.example.retoconjuntohibernate.models.Pelicula"/>
+        <mapping class="org.example.retoconjuntohibernate.models.Copia"/>
 
     </session-factory>
 </hibernate-configuration>
