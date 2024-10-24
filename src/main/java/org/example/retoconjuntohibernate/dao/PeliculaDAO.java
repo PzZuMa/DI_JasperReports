@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import java.util.ArrayList;
 import java.util.List;
-import javax.naming.Referenceable;
 
 /**
  * Clase que implementa la interfaz DAO y se encarga de manejar las películas en la base de datos
@@ -50,4 +49,14 @@ public class PeliculaDAO implements DAO<Pelicula> {
         sF.inTransaction( session -> session.merge(peli));
     }
 
+    public Pelicula findPeliByName(String name) {
+        try (Session session = sF.openSession()) {
+            return session.createQuery("SELECT p FROM Pelicula p WHERE p.titulo = :name", Pelicula.class)
+                    .setParameter("name", name)
+                    .list().getFirst();
+        } catch (Exception e) {
+            System.out.println("No se ha encontrado la pelicula");
+        }
+        return null;
+    }
 }

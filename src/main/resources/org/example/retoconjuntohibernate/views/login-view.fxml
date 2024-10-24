@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="454.0" prefWidth="396.0" stylesheets="@../styles/stylelogin.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.LoginController">
+<BorderPane prefHeight="454.0" prefWidth="396.0" stylesheets="@../styles/stylelogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.LoginController">
    <center>
       <VBox alignment="CENTER" prefHeight="454.0" prefWidth="210.0" spacing="20.0" styleClass="fondo" BorderPane.alignment="CENTER">
          <children>
@@ -45,7 +45,7 @@
             <HBox alignment="CENTER" spacing="25.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#login" text="Iniciar sesión" />
-                  <Button mnemonicParsing="false" text="Registrar" />
+                  <Button mnemonicParsing="false" onAction="#registrar" text="Registrar" />
                </children>
             </HBox>
          </children>

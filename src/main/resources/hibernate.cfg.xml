@@ -15,7 +15,9 @@ https://github.com/hibernate/dtd/blob/main/hibernate-configuration-3.0.dtd
         <!-- <property name="connection.password">1234</property> -->
         <!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
 
-        <property name="show_sql">true</property>
+        <!--<property name="show_sql">true</property>-->
+        <!--<property name="hibernate.format_sql">true</property>-->
+        <!--<property name="hibernate.use_sql_comments">true</property>-->
 
         <mapping class="org.example.retoconjuntohibernate.models.Usuario"/>
         <mapping class="org.example.retoconjuntohibernate.models.Pelicula"/>

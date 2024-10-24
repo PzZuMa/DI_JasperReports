@@ -2,11 +2,12 @@ package org.example.retoconjuntohibernate.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
-import org.example.retoconjuntohibernate.dao.Session;
+import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
 
@@ -24,17 +25,24 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        HibernateUtil.getSessionFactory();
     }
 
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
         Usuario introducido = ud.validateUser(tvUser.getText(), tvPwd.getText());
         if (introducido == null) {
-            System.out.println("Usuario o contraseña incorrectos.");
+            var alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Usuario o contraseña incorrectos");
+            alert.showAndWait();
         } else {
-            Session.user = introducido;
+            RegisteredSession.user = introducido;
             Aplicacion.loadFXML("views/main-view.fxml", "[User: " + introducido.getNombre() + "]",800,600);
         }
+    }
+
+    @javafx.fxml.FXML
+    public void registrar(ActionEvent actionEvent) {
+        Aplicacion.loadFXML("views/register-view.fxml","Registro", 400, 300);
     }
 }

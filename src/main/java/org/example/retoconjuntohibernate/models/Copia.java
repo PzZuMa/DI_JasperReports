@@ -12,15 +12,23 @@ public class Copia implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_pelicula", nullable = false)
     private Pelicula idPelicula;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario idUsuario;
 
     private String estado;
     private String soporte;
+
+
+    @Override
+    public String toString() {
+        return id + " - " + idPelicula.getTitulo() + " - " + idPelicula.getGenero()
+                + " - " + idPelicula.getAño() + " - " + idPelicula.getDescripcion()
+                + " - " + idPelicula.getDirector() + " - " + estado + " - " + soporte;
+    }
 
 }
