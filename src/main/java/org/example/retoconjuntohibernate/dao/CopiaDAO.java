@@ -54,9 +54,18 @@ public class CopiaDAO implements DAO<Copia> {
      * @param id id del usuario
      * @return lista de copias que tiene el usuario
      */
-    public ArrayList<Copia> findPelisByUser(Integer id) {
+    public ArrayList<Copia> findCopiasByUser(Integer id) {
         ArrayList<Copia> resultado = new ArrayList<>();
-
+        try (Session session = sF.openSession()) {
+            System.out.println("Entró");
+            List<Copia> lista = session.createQuery("FROM Copia WHERE idUsuario = :id", Copia.class)
+                    .setParameter("id", id)
+                    .list();
+            resultado.addAll(lista);
+        } catch (Exception e) {
+            return new ArrayList<Copia>(0);
+        }
+        System.out.println(resultado);
         return resultado;
     }
 

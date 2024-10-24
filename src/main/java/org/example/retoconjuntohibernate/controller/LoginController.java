@@ -6,6 +6,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Session;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
 
@@ -32,6 +33,7 @@ public class LoginController implements Initializable {
         if (introducido == null) {
             System.out.println("Usuario o contraseña incorrectos.");
         } else {
+            Session.user = introducido;
             Aplicacion.loadFXML("views/main-view.fxml", "[User: " + introducido.getNombre() + "]",800,600);
         }
     }
