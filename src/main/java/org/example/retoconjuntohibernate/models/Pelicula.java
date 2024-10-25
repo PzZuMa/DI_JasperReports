@@ -16,5 +16,6 @@ public class Pelicula implements Serializable {
     private Integer año;
     private String descripcion;
     private String director;
-
+    private String bso;
+    private String poster;
 }

@@ -6,6 +6,7 @@ module org.example.retoconjuntohibernate {
     requires java.desktop;
     requires jakarta.persistence;
     requires java.naming;
+    requires javafx.media;
 
     opens org.example.retoconjuntohibernate.models;
 

@@ -8,7 +8,6 @@ import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.PeliculaDAO;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.models.Pelicula;
-
 import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;

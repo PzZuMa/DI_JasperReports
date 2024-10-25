@@ -9,7 +9,6 @@ import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 

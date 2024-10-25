@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="590.0" prefWidth="665.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.RegisterController">
+<BorderPane prefHeight="590.0" prefWidth="665.0" stylesheets="@../styles/styleRegister.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.RegisterController">
    <center>
       <VBox alignment="CENTER" prefHeight="349.0" prefWidth="217.0" BorderPane.alignment="CENTER">
          <children>
