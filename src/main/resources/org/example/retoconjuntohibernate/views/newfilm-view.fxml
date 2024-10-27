@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="627.0" prefWidth="570.0" stylesheets="@../styles/styleNewFilm.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.NewFilmController">
+<BorderPane prefHeight="802.0" prefWidth="763.0" stylesheets="@../styles/styleNewFilm.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.NewFilmController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -24,38 +26,79 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="219.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="291.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <Label text="Titulo" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-                  <Label text="Genero" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <Label text="Año" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                  <Label text="Descripción" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                  <Label text="Director" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-                  <Spinner fx:id="spinnerYear" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextArea fx:id="tvDescription" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" promptText="Introduce la descripción..." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <TextField fx:id="tvTitle" maxWidth="200.0" promptText="Introduce el titulo..." GridPane.columnIndex="1" />
-                  <TextField fx:id="tvDirector" maxWidth="200.0" promptText="Introduce el director..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <ComboBox fx:id="cbGenero" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               </children>
+            <HBox alignment="CENTER">
                <VBox.margin>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </VBox.margin>
-            </GridPane>
+               <children>
+                  <VBox alignment="CENTER" prefHeight="353.0" prefWidth="244.0">
+                     <children>
+                        <ImageView fx:id="ivPoster" fitHeight="360.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/posters/placeholder.png" />
+                           </image>
+                        </ImageView>
+                         <HBox alignment="CENTER" spacing="25.0">
+                             <children>
+                                 <Button fx:id="btnPlay" disable="true" mnemonicParsing="false" onAction="#Play">
+                                     <graphic>
+                                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                 <Image url="@../media/play.png" />
+                                             </image>
+                                         </ImageView>
+                                     </graphic>
+                                 </Button>
+                                 <Button fx:id="btnStop" disable="true" mnemonicParsing="false" onAction="#Stop">
+                                     <graphic>
+                                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                 <Image url="@../media/stop.png" />
+                                             </image>
+                                         </ImageView>
+                                     </graphic>
+                                 </Button>
+                             </children>
+                         </HBox>
+                     </children>
+                  </VBox>
+                  <GridPane alignment="CENTER" hgap="10.0" prefHeight="353.0" prefWidth="352.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="219.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="324.0" minWidth="10.0" prefWidth="291.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Titulo" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                        <Label text="Genero" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label text="Año" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                        <Label text="Descripción" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Label text="Director" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                        <Spinner fx:id="spinnerYear" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextArea fx:id="tvDescription" maxWidth="200.0" prefHeight="200.0" prefWidth="200.0" promptText="Introduce la descripción..." wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="tvTitle" maxWidth="200.0" promptText="Introduce el titulo..." GridPane.columnIndex="1" />
+                        <TextField fx:id="tvDirector" maxWidth="200.0" promptText="Introduce el director..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="cbGenero" editable="true" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label alignment="CENTER_RIGHT" text="Poster" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                        <Label text="Banda sonora" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#añadirPoster" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#añadirBSO" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+               </children>
+            </HBox>
             <HBox alignment="CENTER" spacing="25.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-                  <Button mnemonicParsing="false" onAction="#añadir" text="Añadir" />
+                  <Button mnemonicParsing="false" onAction="#añadir" text="Guardar" />
                </children>
             </HBox>
          </children>

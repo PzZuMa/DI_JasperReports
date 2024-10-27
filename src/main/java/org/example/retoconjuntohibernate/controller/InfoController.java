@@ -64,7 +64,13 @@ public class InfoController implements Initializable {
             System.err.println("BSO not found: " + bsoPath);
         }
 
-        ivPoster.setImage(new Image("file:media/posters/"+RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster()));
+        String posterPath = "/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
+        URL posterUrl = getClass().getResource(posterPath);
+        if (posterUrl != null) {
+            ivPoster.setImage(new Image(posterUrl.toString()));
+        } else {
+            System.err.println("Poster not found: " + posterPath);
+        }
     }
 
     @javafx.fxml.FXML
@@ -89,6 +95,7 @@ public class InfoController implements Initializable {
         alert.setTitle("Información");
         alert.setHeaderText("Copia actualizada correctamente");
         alert.showAndWait();
+        mp.stop();
         Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600);
     }
 
