@@ -81,7 +81,7 @@ public class MainController implements Initializable {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Copia rowData = row.getItem();
                     RegisteredSession.copiaSeleccionada = rowData;
-                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 1000, 800);
+                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 1000, 800, true);
                 }
             });
             return row;
@@ -102,7 +102,7 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public void logout(ActionEvent actionEvent) {
         RegisteredSession.user = null;
-        Aplicacion.loadFXML("views/login-view.fxml", "Login", 800, 600);
+        Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, true);
     }
 
     @javafx.fxml.FXML
@@ -113,11 +113,11 @@ public class MainController implements Initializable {
 
     @javafx.fxml.FXML
     public void insertarCopia(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/newcopy-view.fxml", "Insertar Copia", 400, 300);
+        Aplicacion.loadFXML("views/newcopy-view.fxml", "Insertar Copia", 400, 300, true);
     }
 
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/newfilm-view.fxml", "Añadir Pelicula", 800, 600);
+        Aplicacion.loadFXML("views/newfilm-view.fxml", "Añadir Pelicula", 800, 600, true);
     }
 }

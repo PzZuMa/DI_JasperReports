@@ -37,12 +37,12 @@ public class LoginController implements Initializable {
             alert.showAndWait();
         } else {
             RegisteredSession.user = introducido;
-            Aplicacion.loadFXML("views/main-view.fxml", "[User: " + introducido.getNombre() + "]",800,600);
+            Aplicacion.loadFXML("views/main-view.fxml", "[User: " + introducido.getNombre() + "]",800,600, true);
         }
     }
 
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/register-view.fxml","Registro", 400, 300);
+        Aplicacion.loadFXML("views/register-view.fxml","Registro", 250, 350, false);
     }
 }

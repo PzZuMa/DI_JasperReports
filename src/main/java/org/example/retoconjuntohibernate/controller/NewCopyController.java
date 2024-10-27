@@ -56,12 +56,12 @@ public class NewCopyController implements Initializable {
         alert.setHeaderText("Copia añadida correctamente");
         alert.showAndWait();
 
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600);
+        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
     }
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600);
+        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
     }
 
     private void checkCB() {

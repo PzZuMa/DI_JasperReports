@@ -28,7 +28,7 @@ public class RegisterController implements Initializable {
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/login-view.fxml","Login", 800, 600);
+        Aplicacion.loadFXML("views/login-view.fxml","Login", 250, 350, false);
     }
 
     @javafx.fxml.FXML
@@ -44,7 +44,7 @@ public class RegisterController implements Initializable {
             alert.setTitle("Registro");
             alert.setHeaderText("Usuario registrado correctamente");
             alert.showAndWait();
-            Aplicacion.loadFXML("views/main-view.fxml","[User: " + user.getNombre() + "]", 800, 600);
+            Aplicacion.loadFXML("views/main-view.fxml","[User: " + user.getNombre() + "]", 800, 600, true);
         } else {
             var alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

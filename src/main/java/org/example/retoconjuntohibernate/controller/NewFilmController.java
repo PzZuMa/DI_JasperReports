@@ -60,7 +60,7 @@ public class NewFilmController implements Initializable {
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
         if (mp != null) mp.stop();
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600);
+        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
     }
 
     @javafx.fxml.FXML
@@ -78,7 +78,7 @@ public class NewFilmController implements Initializable {
         alert.setHeaderText("Película añadida correctamente");
         alert.showAndWait();
         mp.stop();
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600);
+        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
     }
 
     @javafx.fxml.FXML
