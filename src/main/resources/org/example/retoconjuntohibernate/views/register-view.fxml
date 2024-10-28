@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="350.0" prefWidth="250.0" stylesheets="@../styles/styleRegister.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.RegisterController">
+<BorderPane prefHeight="350.0" prefWidth="250.0" styleClass="fondo" stylesheets="@../styles/styleRegister.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.RegisterController">
    <center>
       <VBox alignment="CENTER" fillWidth="false" prefHeight="349.0" prefWidth="217.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="foto">
                <image>
-                  <Image url="@../media/registro.png" />
+                  <Image url="@../media/agregar-usuario.png" />
                </image>
             </ImageView>
             <GridPane alignment="CENTER" hgap="10.0" prefWidth="369.0" vgap="10.0">
@@ -33,9 +33,9 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="tvUser" alignment="TOP_LEFT" promptText="Usuario" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <PasswordField fx:id="tvPWD" promptText="Contraseña" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                  <PasswordField fx:id="tvConfirm" promptText="Confirma la contraseña" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <TextField fx:id="tvUser" alignment="TOP_LEFT" promptText="Usuario" styleClass="tvUser" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <PasswordField fx:id="tvPWD" promptText="Contraseña" styleClass="tvPWD" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <PasswordField fx:id="tvConfirm" promptText="Confirma la contraseña" styleClass="tvPWDconfirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../media/tvUser.png" />
@@ -58,8 +58,8 @@
             </GridPane>
             <HBox alignment="CENTER" spacing="25.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#cancelar" prefWidth="80.0" text="Cancelar" />
-                  <Button mnemonicParsing="false" onAction="#registrar" text="Registrarme" />
+                  <Button mnemonicParsing="false" onAction="#registrar" styleClass="btnRegistrar" text="Registrarme" />
+                  <Button mnemonicParsing="false" onAction="#cancelar" prefWidth="80.0" styleClass="btnCancelar" text="Cancelar" />
                </children>
             </HBox>
          </children>

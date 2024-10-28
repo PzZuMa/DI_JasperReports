@@ -1,0 +1,71 @@
+.fondo {
+    -fx-background-color: #30596e;
+}
+
+.foto {
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.tvUser {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
+.tvUser:focused {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+.tvPWD {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
+.tvPWD:focused {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+.tvPWDconfirm {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
+.tvPWDconfirm:focused {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}
+
+.btnCancelar {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
+.btnCancelar:hover {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000 bold;
+}
+
+.btnRegistrar {
+    -fx-background-color: #d3d3d3;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, -1,2);
+}
+
+.btnRegistrar:hover {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}

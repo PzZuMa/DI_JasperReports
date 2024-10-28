@@ -35,7 +35,7 @@
                      <children>
                         <ImageView fx:id="ivPoster" fitHeight="360.0" fitWidth="248.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../media/posters/placeholder.png" />
+                              <Image url="@../media/placeholder.png" />
                            </image>
                         </ImageView>
                          <HBox alignment="CENTER" spacing="25.0">

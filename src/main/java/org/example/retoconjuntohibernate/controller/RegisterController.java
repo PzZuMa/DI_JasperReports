@@ -7,6 +7,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
 import java.net.URL;
@@ -37,13 +38,13 @@ public class RegisterController implements Initializable {
             Usuario user = new Usuario();
             user.setNombre(tvUser.getText());
             user.setContraseña(tvPWD.getText());
-
             UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
             ud.insert(user);
             var alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Registro");
             alert.setHeaderText("Usuario registrado correctamente");
             alert.showAndWait();
+            RegisteredSession.user = user;
             Aplicacion.loadFXML("views/main-view.fxml","[User: " + user.getNombre() + "]", 800, 600, true);
         } else {
             var alert = new Alert(Alert.AlertType.ERROR);

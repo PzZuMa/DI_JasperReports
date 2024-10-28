@@ -23,7 +23,6 @@ public class Copia implements Serializable {
     private String estado;
     private String soporte;
 
-
     @Override
     public String toString() {
         return id + " - " + idPelicula.getTitulo() + " - " + idPelicula.getGenero()

@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="350.0" prefWidth="250.0" stylesheets="@../styles/styleLogin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.LoginController">
+<BorderPane prefHeight="350.0" prefWidth="250.0" stylesheets="@../styles/styleLogin.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.LoginController">
    <center>
       <VBox alignment="CENTER" prefHeight="327.0" prefWidth="259.0" spacing="20.0" styleClass="fondo" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="userPrincipal">
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" styleClass="foto">
                <image>
-                  <Image url="@../media/userLogin.png" />
+                  <Image url="@../media/usuario.png" />
                </image>
             </ImageView>
             <GridPane alignment="CENTER" hgap="10.0" vgap="10.0">
