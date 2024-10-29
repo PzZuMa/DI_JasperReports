@@ -76,7 +76,7 @@ public class InfoController implements Initializable {
     @javafx.fxml.FXML
     public void salir(ActionEvent actionEvent) {
         mp.stop();
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
     }
 
     @javafx.fxml.FXML
@@ -96,7 +96,7 @@ public class InfoController implements Initializable {
         alert.setHeaderText("Copia actualizada correctamente");
         alert.showAndWait();
         mp.stop();
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
     }
 
     @javafx.fxml.FXML

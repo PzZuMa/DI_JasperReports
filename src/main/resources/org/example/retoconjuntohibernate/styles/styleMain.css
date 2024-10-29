@@ -1,0 +1,59 @@
+.root{
+    -fx-background-color: #30596e;
+}
+
+.table-view {
+    -fx-background-color: #30596e;
+    -fx-border-color: black;
+    -fx-table-cell-border-color: transparent;
+}
+
+.table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #e6e6e6;
+}
+
+.table-row-cell:even {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #88d4f5;
+    -fx-text-fill: white;
+}
+
+.table-cell {
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+    -fx-font-weight: normal;
+    -fx-text-fill: #333333;
+}
+
+.column-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-color: #88d4f5;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+
+.column-header:hover {
+    -fx-background-color: #e6e6e6;
+}
+
+.btn{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 2, 0.5, 0, 0);
+}
+
+.btn:hover{
+    -fx-effect: dropshadow(gaussian, #88d4f5, 15, 0.6, 0, 0);
+}

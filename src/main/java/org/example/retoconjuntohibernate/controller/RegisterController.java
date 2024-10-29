@@ -34,23 +34,30 @@ public class RegisterController implements Initializable {
 
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
-        if(tvPWD.getText().equals(tvConfirm.getText())){
-            Usuario user = new Usuario();
-            user.setNombre(tvUser.getText());
-            user.setContraseña(tvPWD.getText());
-            UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
-            ud.insert(user);
-            var alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Registro");
-            alert.setHeaderText("Usuario registrado correctamente");
-            alert.showAndWait();
-            RegisteredSession.user = user;
-            Aplicacion.loadFXML("views/main-view.fxml","[User: " + user.getNombre() + "]", 800, 600, true);
-        } else {
+        if (tvUser.getText().isEmpty() || tvPWD.getText().isEmpty() || tvConfirm.getText().isEmpty()) {
             var alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
-            alert.setHeaderText("Las contraseñas no coinciden");
+            alert.setHeaderText("Por favor, rellene todos los campos");
             alert.showAndWait();
+        } else {
+            if(tvPWD.getText().equals(tvConfirm.getText())) {
+                Usuario user = new Usuario();
+                user.setNombre(tvUser.getText());
+                user.setContraseña(tvPWD.getText());
+                UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
+                ud.insert(user);
+                var alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registro");
+                alert.setHeaderText("Usuario registrado correctamente");
+                alert.showAndWait();
+                RegisteredSession.user = user;
+                Aplicacion.loadFXML("views/main-view.fxml","MOVIE-UP [User: " + user.getNombre() + "]", 600, 600, false);
+            } else {
+                var alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Las contraseñas no coinciden");
+                alert.showAndWait();
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
@@ -21,19 +22,9 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public TableColumn<Copia,String> cTitle;
     @javafx.fxml.FXML
-    public TableColumn<Copia,String> cGenre;
-    @javafx.fxml.FXML
-    public TableColumn<Copia,String> cYear;
-    @javafx.fxml.FXML
-    public TableColumn<Copia,String> cDescription;
-    @javafx.fxml.FXML
-    public TableColumn<Copia,String> cDirector;
-    @javafx.fxml.FXML
     public TableColumn<Copia,String> cEstado;
     @javafx.fxml.FXML
     public TableColumn<Copia,String> cSoporte;
-    @javafx.fxml.FXML
-    public TableColumn<Copia,String> cID;
     @javafx.fxml.FXML
     public Button btnDelete;
 
@@ -42,24 +33,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        cID.setCellValueFactory( (row) -> {
-            return new SimpleStringProperty(row.getValue().getId().toString());
-        });
         cTitle.setCellValueFactory( (row) -> {
             return new SimpleStringProperty(row.getValue().getIdPelicula().getTitulo());
-        });
-        cGenre.setCellValueFactory( (row) -> {
-            return new SimpleStringProperty(row.getValue().getIdPelicula().getGenero());
-        });
-        cYear.setCellValueFactory( (row) -> {
-            return new SimpleStringProperty(row.getValue().getIdPelicula().getAño().toString());
-        });
-        cDescription.setCellValueFactory( (row) -> {
-            return new SimpleStringProperty(row.getValue().getIdPelicula().getDescripcion());
-        });
-        cDirector.setCellValueFactory( (row) -> {
-            return new SimpleStringProperty(row.getValue().getIdPelicula().getDirector());
         });
         cEstado.setCellValueFactory( (row) -> {
             return new SimpleStringProperty(row.getValue().getEstado());
@@ -90,8 +65,6 @@ public class MainController implements Initializable {
             RegisteredSession.copiaSeleccionada = newSelection;
             btnDelete.setDisable(false);
         });
-
-
     }
 
     public void tableRefresh() {
@@ -102,22 +75,28 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public void logout(ActionEvent actionEvent) {
         RegisteredSession.user = null;
-        Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, true);
+        Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
     }
 
     @javafx.fxml.FXML
     public void deleteCopy(ActionEvent actionEvent) {
+        if (RegisteredSession.copiaSeleccionada == null) {
+            return;
+        }
         copiaDAO.delete(RegisteredSession.copiaSeleccionada);
         tableRefresh();
+        btnDelete.setDisable(true);
     }
 
     @javafx.fxml.FXML
     public void insertarCopia(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/newcopy-view.fxml", "Insertar Copia", 400, 300, true);
+        Aplicacion.loadFXModal("views/newcopy-view.fxml", "Nueva copia", 300, 250, true);
+        tableRefresh();
+        btnDelete.setDisable(true);
     }
 
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/newfilm-view.fxml", "Añadir Pelicula", 800, 600, true);
+        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva pelicula", 750, 600, true);
     }
 }

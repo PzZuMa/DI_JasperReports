@@ -3,13 +3,13 @@ package org.example.retoconjuntohibernate.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.PeliculaDAO;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.models.Copia;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,10 +23,8 @@ public class NewCopyController implements Initializable {
     @javafx.fxml.FXML
     public Button btnIntroducir;
 
-
     private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
     private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,12 +54,14 @@ public class NewCopyController implements Initializable {
         alert.setHeaderText("Copia añadida correctamente");
         alert.showAndWait();
 
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
+        Stage stage = (Stage) btnIntroducir.getScene().getWindow();
+        stage.close();
     }
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/main-view.fxml", "[User: " + RegisteredSession.user.getNombre() + "]",800,600, true);
+        Stage stage = (Stage) btnIntroducir.getScene().getWindow();
+        stage.close();
     }
 
     private void checkCB() {
