@@ -5,6 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.models.*;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
 import java.io.IOException;
 
 public class Aplicacion extends Application {

@@ -56,4 +56,5 @@
 
 .btn:hover{
     -fx-effect: dropshadow(gaussian, #88d4f5, 15, 0.6, 0, 0);
+    -fx-cursor: hand;
 }

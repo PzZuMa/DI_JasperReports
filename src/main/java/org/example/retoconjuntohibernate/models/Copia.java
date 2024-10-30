@@ -25,9 +25,7 @@ public class Copia implements Serializable {
 
     @Override
     public String toString() {
-        return id + " - " + idPelicula.getTitulo() + " - " + idPelicula.getGenero()
-                + " - " + idPelicula.getAño() + " - " + idPelicula.getDescripcion()
-                + " - " + idPelicula.getDirector() + " - " + estado + " - " + soporte;
+        return id + " - " + idPelicula.getTitulo() + " - " + estado + " - " + soporte;
     }
 
 }
