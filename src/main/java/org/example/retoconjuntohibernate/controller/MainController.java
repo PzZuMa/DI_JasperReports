@@ -25,6 +25,8 @@ public class MainController implements Initializable {
     public TableColumn<Copia,String> cSoporte;
     @javafx.fxml.FXML
     public Button btnDelete;
+    @javafx.fxml.FXML
+    private Label welcomeUser;
 
 
     private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
@@ -43,6 +45,8 @@ public class MainController implements Initializable {
 
         tableRefresh();
 
+        welcomeUser.setText(RegisteredSession.user.getNombre());
+
         /*
         Estos dos parrafos de codigo permite realizar un listener en la tabla para detectar doble click en una fila y
         otro para detectar cuanndo se hace solo un click sobre una fila, para asi mostrar los datos de la pelicula con
@@ -54,7 +58,7 @@ public class MainController implements Initializable {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Copia rowData = row.getItem();
                     RegisteredSession.copiaSeleccionada = rowData;
-                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 1000, 800, true);
+                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 700, 700, false);
                 }
             });
             return row;
@@ -88,13 +92,18 @@ public class MainController implements Initializable {
 
     @javafx.fxml.FXML
     public void insertarCopia(ActionEvent actionEvent) {
-        Aplicacion.loadFXModal("views/newcopy-view.fxml", "Nueva copia", 300, 250, true);
+        Aplicacion.loadFXModal("views/newcopy-view.fxml", "Nueva copia", 300, 250, false);
         tableRefresh();
         btnDelete.setDisable(true);
     }
 
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
-        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva pelicula", 750, 600, true);
+        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva pelicula", 700, 700, false);
+    }
+
+    @javafx.fxml.FXML
+    public void userInfo(ActionEvent actionEvent) {
+        Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 350, false);
     }
 }

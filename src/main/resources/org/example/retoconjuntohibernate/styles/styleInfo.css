@@ -1,0 +1,76 @@
+.root{
+    -fx-background-color: #30596e;
+}
+
+.btnImage{
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, black, 2, 0.5, 0, 0);
+}
+
+.btnImage:hover{
+    -fx-effect: dropshadow(gaussian, #88d4f5, 15, 0.6, 0, 0);
+    -fx-cursor: hand;
+}
+
+.img{
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.btn {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.51), 10, 0.5, -2,2);
+}
+
+.btn:hover {
+    -fx-background-color: #88d4f5;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+}
+
+.comboBox{
+    -fx-background-color: #88d4f5;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, white, 5, 0.5, -1, 1);
+}
+
+TextField{
+    -fx-background-color: #88d4f5;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, white, 5, 0.5, -1, 1);
+}
+
+Label{
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+TextArea{
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-control-inner-background: #88d4f5;
+    -fx-effect: dropshadow(gaussian, white, 5, 0.5, -1, 1);
+}
+
+.slider .track {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
+}
+
+.slider .thumb {
+    -fx-background-color: #000000;
+    -fx-background-radius: 10px;
+}
+
+.slider .thumb:hover {
+    -fx-effect: dropshadow(gaussian, #88d4f5, 10, 0.5, 0, 0);
+    -fx-cursor: hand;
+}

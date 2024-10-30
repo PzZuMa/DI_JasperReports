@@ -1,5 +1,7 @@
 package org.example.retoconjuntohibernate.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -14,6 +16,7 @@ import org.example.retoconjuntohibernate.models.Copia;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,8 +27,6 @@ public class InfoController implements Initializable {
     private TextField tvYear;
     @javafx.fxml.FXML
     private TextField tvGenre;
-    @javafx.fxml.FXML
-    private Label tituloID;
     @javafx.fxml.FXML
     private TextField tvTitle;
     @javafx.fxml.FXML
@@ -38,6 +39,9 @@ public class InfoController implements Initializable {
     private ImageView ivPoster;
     @javafx.fxml.FXML
     private Button btnStop;
+    @javafx.fxml.FXML
+    private Slider volume;
+
 
     private MediaPlayer mp;
 
@@ -46,7 +50,6 @@ public class InfoController implements Initializable {
         cbEstado.getItems().addAll("bueno","dañado");
         cbSoporte.getItems().addAll("DVD","Blu-ray");
 
-        tituloID.setText(RegisteredSession.copiaSeleccionada.getIdPelicula().getTitulo());
         tvTitle.setText(RegisteredSession.copiaSeleccionada.getIdPelicula().getTitulo());
         tvGenre.setText(RegisteredSession.copiaSeleccionada.getIdPelicula().getGenero());
         tvYear.setText(RegisteredSession.copiaSeleccionada.getIdPelicula().getAño().toString());
@@ -55,19 +58,45 @@ public class InfoController implements Initializable {
         cbEstado.setValue(RegisteredSession.copiaSeleccionada.getEstado());
         cbSoporte.setValue(RegisteredSession.copiaSeleccionada.getSoporte());
 
-        String bsoPath = "/org/example/retoconjuntohibernate/media/bso/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getBso();
-        URL bsoUrl = getClass().getResource(bsoPath);
-        if (bsoUrl != null) {
-            Media bso = new Media(bsoUrl.toString());
+//        String bsoPath = "/org/example/retoconjuntohibernate/media/bso/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getBso();
+//        URL bsoUrl = getClass().getResource(bsoPath);
+//        if (bsoUrl != null) {
+//            Media bso = new Media(bsoUrl.toString());
+//            mp = new MediaPlayer(bso);
+//        } else {
+//            System.err.println("BSO not found: " + bsoPath);
+//        }
+
+        String bsoPath = "src/main/resources/org/example/retoconjuntohibernate/media/bso/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getBso();
+        File bsoFile = new File(bsoPath);
+        if (bsoFile.exists()) {
+            Media bso = new Media(bsoFile.toURI().toString());
             mp = new MediaPlayer(bso);
+
+            mp.setVolume(volume.getValue());
+            volume.valueProperty().addListener(new ChangeListener<Number>() {
+                @Override
+                public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                    mp.setVolume(newValue.doubleValue());
+                }
+            });
+
         } else {
             System.err.println("BSO not found: " + bsoPath);
         }
 
-        String posterPath = "/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
-        URL posterUrl = getClass().getResource(posterPath);
-        if (posterUrl != null) {
-            ivPoster.setImage(new Image(posterUrl.toString()));
+//        String posterPath = "/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
+//        URL posterUrl = getClass().getResource(posterPath);
+//        if (posterUrl != null) {
+//            ivPoster.setImage(new Image(posterUrl.toString()));
+//        } else {
+//            System.err.println("Poster not found: " + posterPath);
+//        }
+
+        String posterPath = "src/main/resources/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
+        File posterFile = new File(posterPath);
+        if (posterFile.exists()) {
+            ivPoster.setImage(new Image(posterFile.toURI().toString()));
         } else {
             System.err.println("Poster not found: " + posterPath);
         }
@@ -75,7 +104,9 @@ public class InfoController implements Initializable {
 
     @javafx.fxml.FXML
     public void salir(ActionEvent actionEvent) {
-        mp.stop();
+        if (mp != null) {
+            mp.stop();
+        }
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
     }
 
@@ -95,14 +126,20 @@ public class InfoController implements Initializable {
         alert.setTitle("Información");
         alert.setHeaderText("Copia actualizada correctamente");
         alert.showAndWait();
-        mp.stop();
+        if (mp != null) {
+            mp.stop();
+        }
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
     }
 
     @javafx.fxml.FXML
     public void Play(ActionEvent actionEvent) {
-        mp.play();
-        btnStop.setDisable(false);
+        if (mp != null) {
+            mp.play();
+            btnStop.setDisable(false);
+        } else {
+            System.err.println("No BSO found");
+        }
     }
 
     @javafx.fxml.FXML

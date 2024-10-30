@@ -1,5 +1,7 @@
 package org.example.retoconjuntohibernate.controller;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -45,6 +47,8 @@ public class NewFilmController implements Initializable {
     private MediaPlayer mp;
     private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
     private Pelicula peli = new Pelicula();
+    @javafx.fxml.FXML
+    private Slider volume;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,7 +63,9 @@ public class NewFilmController implements Initializable {
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
-        if (mp != null) mp.stop();
+        if (mp != null) {
+            mp.stop();
+        }
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
@@ -77,7 +83,9 @@ public class NewFilmController implements Initializable {
         alert.setTitle("Información");
         alert.setHeaderText("Película añadida correctamente");
         alert.showAndWait();
-        mp.stop();
+        if (mp != null) {
+            mp.stop();
+        }
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
@@ -99,6 +107,16 @@ public class NewFilmController implements Initializable {
                 peli.setBso(file.getName());
                 mp = new MediaPlayer(new Media(targetFile.toURI().toString()));
                 btnPlay.setDisable(false);
+                volume.setDisable(false);
+
+                mp.setVolume(volume.getValue());
+                volume.valueProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                        mp.setVolume(newValue.doubleValue());
+                    }
+                });
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -130,7 +148,9 @@ public class NewFilmController implements Initializable {
 
     @javafx.fxml.FXML
     public void Play(ActionEvent actionEvent) {
-        mp.play();
+        if (mp != null) {
+            mp.play();
+        }
         btnStop.setDisable(false);
     }
 

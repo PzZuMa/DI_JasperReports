@@ -69,4 +69,15 @@ public class CopiaDAO implements DAO<Copia> {
         return resultado;
     }
 
+    public Long countCopyByUser(Usuario user) {
+        try (Session session = sF.openSession()) {
+            return session.createQuery("SELECT COUNT(c) FROM Copia c WHERE c.idUsuario = :user", Long.class)
+                    .setParameter("user", user)
+                    .getSingleResult();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
+        }
+        return 0L;
+    }
 }
