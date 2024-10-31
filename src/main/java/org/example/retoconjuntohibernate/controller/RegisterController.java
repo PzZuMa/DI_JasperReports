@@ -29,11 +29,13 @@ public class RegisterController implements Initializable {
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/login-view.fxml","Login", 250, 350, false);
     }
 
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         if (tvUser.getText().isEmpty() || tvPWD.getText().isEmpty() || tvConfirm.getText().isEmpty()) {
             var alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");

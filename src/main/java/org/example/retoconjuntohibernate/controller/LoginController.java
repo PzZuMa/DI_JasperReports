@@ -20,15 +20,16 @@ public class LoginController implements Initializable {
     @javafx.fxml.FXML
     private TextField tvUser;
 
-
     private UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Usuario introducido = ud.validateUser(tvUser.getText(), tvPwd.getText());
         if (introducido == null) {
             var alert = new Alert(Alert.AlertType.ERROR);
@@ -43,6 +44,16 @@ public class LoginController implements Initializable {
 
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/register-view.fxml","Registro", 250, 350, false);
+    }
+
+    @javafx.fxml.FXML
+    public void olvidada(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información");
+        alert.setHeaderText("Contacte con el administrador para recuperar su contraseña.");
+        alert.showAndWait();
     }
 }

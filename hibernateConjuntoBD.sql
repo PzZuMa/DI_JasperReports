@@ -30,8 +30,7 @@ INSERT INTO `Copia` (`id`, `id_pelicula`, `id_usuario`, `estado`, `soporte`) VAL
 	(3, 2, 2, 'dañado', 'DVD'),
 	(4, 3, 1, 'bueno', 'Blu-ray'),
 	(5, 4, 2, 'bueno', 'DVD'),
-	(6, 4, 1, 'bueno', 'Blu-ray'),
-	(45, 2, 1, 'bueno', 'DVD');
+	(6, 4, 1, 'bueno', 'Blu-ray');
 
 CREATE TABLE IF NOT EXISTS `Pelicula` (
   `id` int NOT NULL AUTO_INCREMENT,

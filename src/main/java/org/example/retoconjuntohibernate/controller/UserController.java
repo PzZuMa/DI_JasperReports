@@ -31,6 +31,7 @@ public class UserController implements Initializable {
 
     @javafx.fxml.FXML
     public void volver(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Stage stage = (Stage) btnVolver.getScene().getWindow();
         stage.close();
     }

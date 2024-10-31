@@ -6,6 +6,13 @@
     -fx-effect: dropshadow(gaussian, black, 10, 0.5, 0, 0);
 }
 
+.link{
+    -fx-text-fill: white;
+    -fx-font-size: 12;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
 .user {
     -fx-background-color: transparent;
     -fx-border-color: white;

@@ -41,13 +41,12 @@ public class InfoController implements Initializable {
     private Button btnStop;
     @javafx.fxml.FXML
     private Slider volume;
-
-
-    private MediaPlayer mp;
     @javafx.fxml.FXML
     private Button btnPlay;
     @javafx.fxml.FXML
     private Button btnPause;
+
+    private MediaPlayer mpBSO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,14 +65,14 @@ public class InfoController implements Initializable {
         File bsoFile = new File(bsoPath);
         if (bsoFile.exists()) {
             Media bso = new Media(bsoFile.toURI().toString());
-            mp = new MediaPlayer(bso);
+            mpBSO = new MediaPlayer(bso);
 
             volume.setValue(RegisteredSession.volumen);
-            mp.setVolume(RegisteredSession.volumen);
+            mpBSO.setVolume(RegisteredSession.volumen);
             volume.valueProperty().addListener(new ChangeListener<Number>() {
                 @Override
                 public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                    mp.setVolume(newValue.doubleValue());
+                    mpBSO.setVolume(newValue.doubleValue());
                     RegisteredSession.volumen = newValue.doubleValue();
                 }
             });
@@ -92,9 +91,10 @@ public class InfoController implements Initializable {
 
     @javafx.fxml.FXML
     public void salir(ActionEvent actionEvent) {
-        if (mp != null) {
-            mp.stop();
+        if (mpBSO != null) {
+            mpBSO.stop();
         }
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
@@ -110,20 +110,21 @@ public class InfoController implements Initializable {
         copia.setSoporte(String.valueOf(cbSoporte.getValue()));
         copiaDAO.update(copia);
 
+        RegisteredSession.playButtonSound();
         var alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
         alert.setHeaderText("Copia actualizada correctamente");
         alert.showAndWait();
-        if (mp != null) {
-            mp.stop();
+        if (mpBSO != null) {
+            mpBSO.stop();
         }
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
     @javafx.fxml.FXML
     public void Play(ActionEvent actionEvent) {
-        if (mp != null) {
-            mp.play();
+        if (mpBSO != null) {
+            mpBSO.play();
             btnPlay.setDisable(true);
             btnStop.setDisable(false);
             btnPause.setDisable(false);
@@ -134,16 +135,18 @@ public class InfoController implements Initializable {
 
     @javafx.fxml.FXML
     public void Stop(ActionEvent actionEvent) {
-        mp.stop();
+        mpBSO.stop();
         btnStop.setDisable(true);
         btnPlay.setDisable(false);
         btnPause.setDisable(true);
+        RegisteredSession.playButtonSound();
     }
 
     @javafx.fxml.FXML
     public void Pause(ActionEvent actionEvent) {
-        mp.pause();
+        mpBSO.pause();
         btnPlay.setDisable(false);
         btnPause.setDisable(true);
+        RegisteredSession.playButtonSound();
     }
 }

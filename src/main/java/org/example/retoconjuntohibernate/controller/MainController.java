@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
-import org.example.retoconjuntohibernate.dao.RegisteredSession;
+import org.example.retoconjuntohibernate.dao.*;
 import org.example.retoconjuntohibernate.models.Copia;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -77,11 +77,13 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public void logout(ActionEvent actionEvent) {
         RegisteredSession.user = null;
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
     }
 
     @javafx.fxml.FXML
     public void deleteCopy(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         if (RegisteredSession.copiaSeleccionada == null) {
             return;
         }
@@ -92,6 +94,7 @@ public class MainController implements Initializable {
 
     @javafx.fxml.FXML
     public void insertarCopia(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXModal("views/newcopy-view.fxml", "Nueva copia", 300, 250, false);
         tableRefresh();
         btnDelete.setDisable(true);
@@ -99,11 +102,13 @@ public class MainController implements Initializable {
 
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva pelicula", 700, 700, false);
     }
 
     @javafx.fxml.FXML
     public void userInfo(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 350, false);
     }
 }

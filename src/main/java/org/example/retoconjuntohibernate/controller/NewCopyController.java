@@ -49,6 +49,8 @@ public class NewCopyController implements Initializable {
         copia.setIdUsuario(RegisteredSession.user);
         copiaDAO.insert(copia);
 
+        RegisteredSession.playButtonSound();
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
         alert.setHeaderText("Copia añadida correctamente");
@@ -60,6 +62,7 @@ public class NewCopyController implements Initializable {
 
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         Stage stage = (Stage) btnIntroducir.getScene().getWindow();
         stage.close();
     }

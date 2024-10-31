@@ -70,6 +70,7 @@ public class NewFilmController implements Initializable {
         if (mp != null) {
             mp.stop();
         }
+        RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
@@ -83,6 +84,8 @@ public class NewFilmController implements Initializable {
 
         peliDAO.insert(peli);
 
+        RegisteredSession.playButtonSound();
+
         var alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información");
         alert.setHeaderText("Película añadida correctamente");
@@ -95,6 +98,7 @@ public class NewFilmController implements Initializable {
 
     @javafx.fxml.FXML
     public void añadirBSO(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         var fc = new FileChooser();
         fc.setTitle("Selecciona una banda sonora");
         fc.getExtensionFilters().addAll(
@@ -131,6 +135,7 @@ public class NewFilmController implements Initializable {
 
     @javafx.fxml.FXML
     public void añadirPoster(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
         var fc = new FileChooser();
         fc.setTitle("Selecciona un poster");
         fc.getExtensionFilters().addAll(
@@ -170,6 +175,7 @@ public class NewFilmController implements Initializable {
         btnStop.setDisable(true);
         btnPlay.setDisable(false);
         btnPause.setDisable(true);
+        RegisteredSession.playButtonSound();
     }
 
     @javafx.fxml.FXML
@@ -177,5 +183,6 @@ public class NewFilmController implements Initializable {
         mp.pause();
         btnPlay.setDisable(false);
         btnPause.setDisable(true);
+        RegisteredSession.playButtonSound();
     }
 }
