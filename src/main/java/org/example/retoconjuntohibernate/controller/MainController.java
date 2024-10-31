@@ -58,6 +58,7 @@ public class MainController implements Initializable {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Copia rowData = row.getItem();
                     RegisteredSession.copiaSeleccionada = rowData;
+                    RegisteredSession.playButtonSound();
                     Aplicacion.loadFXML("views/info-view.fxml", "Información", 700, 700, false);
                 }
             });
