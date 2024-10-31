@@ -13,10 +13,18 @@ import java.util.List;
 public class CopiaDAO implements DAO<Copia> {
     private SessionFactory sF = null;
 
+    /**
+     * Constructor de la clase
+     * @param sessionFactory sesiones Hibernate
+     */
     public CopiaDAO(SessionFactory sessionFactory) {
         this.sF = sessionFactory;
     }
 
+    /**
+     * Método que busca todas las copias de la base de datos
+     * @return lista de copias
+     */
     @Override
     public List<Copia> findAll() {
         try (Session session = sF.openSession()) {
@@ -26,6 +34,11 @@ public class CopiaDAO implements DAO<Copia> {
         }
     }
 
+    /**
+     * Método que busca una copia por su id
+     * @param id id de la copia
+     * @return copia
+     */
     @Override
     public Copia findByID(Integer id) {
         try (Session session = sF.openSession()) {
@@ -35,16 +48,28 @@ public class CopiaDAO implements DAO<Copia> {
         }
     }
 
+    /**
+     * Método que inserta una copia en la base de datos
+     * @param copia copia a insertar
+     */
     @Override
     public void insert(Copia copia) {
         sF.inTransaction( session -> session.persist(copia));
     }
 
+    /**
+     * Método que elimina una copia de la base de datos
+     * @param copia copia a eliminar
+     */
     @Override
     public void delete(Copia copia) {
         sF.inTransaction( session -> session.remove(copia));
     }
 
+    /**
+     * Método que actualiza una copia en la base de datos
+     * @param copia copia a actualizar
+     */
     @Override
     public void update(Copia copia) {
         sF.inTransaction( session -> session.merge(copia));
@@ -69,6 +94,11 @@ public class CopiaDAO implements DAO<Copia> {
         return resultado;
     }
 
+    /**
+     * Método que cuenta las copias de peliculas que tiene un usuario
+     * @param user usuario
+     * @return número de copias que tiene el usuario
+     */
     public Long countCopyByUser(Usuario user) {
         try (Session session = sF.openSession()) {
             return session.createQuery("SELECT COUNT(c) FROM Copia c WHERE c.idUsuario = :user", Long.class)

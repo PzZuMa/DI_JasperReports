@@ -12,7 +12,9 @@ import org.example.retoconjuntohibernate.models.Copia;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Controlador principal que maneja la interfaz de usuario y las interacciones en la aplicación.
+ */
 public class MainController implements Initializable {
 
     @javafx.fxml.FXML
@@ -28,9 +30,14 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     private Label welcomeUser;
 
-
     private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
 
+    /**
+     * Inicializa el controlador y configura las columnas de la tabla y los listeners.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar objetos raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cTitle.setCellValueFactory( (row) -> {
@@ -47,10 +54,10 @@ public class MainController implements Initializable {
 
         welcomeUser.setText(RegisteredSession.user.getNombre());
 
-        /*
-        Estos dos parrafos de codigo permite realizar un listener en la tabla para detectar doble click en una fila y
-        otro para detectar cuanndo se hace solo un click sobre una fila, para asi mostrar los datos de la pelicula con
-        el doble click y habilitar diferentes funciones con un solo click.
+        /**
+         * Estos dos párrafos de código permiten realizar un listener en la tabla para detectar doble click en una fila y
+         * otro para detectar cuando se hace solo un click sobre una fila, para así mostrar los datos de la película con
+         * el doble click y habilitar diferentes funciones con un solo click.
          */
         tableID.setRowFactory(tv -> {
             TableRow<Copia> row = new TableRow<>();
@@ -70,11 +77,19 @@ public class MainController implements Initializable {
         });
     }
 
+    /**
+     * Refresca los datos de la tabla con las copias del usuario actual.
+     */
     public void tableRefresh() {
         tableID.getItems().clear();
         tableID.getItems().addAll(copiaDAO.findCopiasByUserID(RegisteredSession.user.getId()));
     }
 
+    /**
+     * Maneja la acción de cerrar sesión.
+     *
+     * @param actionEvent el evento de acción.
+     */
     @javafx.fxml.FXML
     public void logout(ActionEvent actionEvent) {
         RegisteredSession.user = null;
@@ -82,6 +97,11 @@ public class MainController implements Initializable {
         Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
     }
 
+    /**
+     * Maneja la acción de eliminar una copia seleccionada.
+     *
+     * @param actionEvent el evento de acción.
+     */
     @javafx.fxml.FXML
     public void deleteCopy(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -93,6 +113,11 @@ public class MainController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    /**
+     * Maneja la acción de insertar una nueva copia.
+     *
+     * @param actionEvent el evento de acción.
+     */
     @javafx.fxml.FXML
     public void insertarCopia(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -101,12 +126,22 @@ public class MainController implements Initializable {
         btnDelete.setDisable(true);
     }
 
+    /**
+     * Maneja la acción de añadir una nueva película.
+     *
+     * @param actionEvent el evento de acción.
+     */
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
-        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva pelicula", 700, 700, false);
+        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva película", 700, 700, false);
     }
 
+    /**
+     * Maneja la acción de mostrar la información del usuario.
+     *
+     * @param actionEvent el evento de acción.
+     */
     @javafx.fxml.FXML
     public void userInfo(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();

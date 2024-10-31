@@ -15,10 +15,19 @@ import org.hibernate.query.Query;
 
 import java.io.IOException;
 
+/**
+ * Clase principal de la aplicación
+ */
 public class Aplicacion extends Application {
 
     private static Stage ventana;
 
+    /**
+     * Inicia la aplicación cargando la vista de login
+     *
+     * @param stage la ventana principal de la aplicación
+     * @throws IOException si no se puede cargar la vista
+     */
     @Override
     public void start(Stage stage) throws IOException {
         ventana = stage;
@@ -26,6 +35,15 @@ public class Aplicacion extends Application {
         stage.show();
     }
 
+    /**
+     * Carga una vista FXML en la ventana principal
+     *
+     * @param view la vista a cargar
+     * @param title el título de la ventana
+     * @param anchura la anchura de la ventana
+     * @param altura la altura de la ventana
+     * @param resizable si la ventana es redimensionable
+     */
     public static void loadFXML(String view, String title, Integer anchura, Integer altura, Boolean resizable) {
         FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource(view));
         Scene scene = null;
@@ -44,6 +62,15 @@ public class Aplicacion extends Application {
         ventana.setY((screenBounds.getHeight() - altura) / 2);
     }
 
+    /**
+     * Carga una vista FXML en una ventana modal
+     *
+     * @param view la vista a cargar
+     * @param title el título de la ventana
+     * @param anchura la anchura de la ventana
+     * @param altura la altura de la ventana
+     * @param resizable si la ventana es redimensionable
+     */
     public static void loadFXModal(String view, String title, Integer anchura, Integer altura, Boolean resizable) {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(Aplicacion.class.getResource(view));
@@ -65,6 +92,11 @@ public class Aplicacion extends Application {
         }
     }
 
+    /**
+     * Método principal de la aplicación
+     *
+     * @param args los argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
         launch();
     }

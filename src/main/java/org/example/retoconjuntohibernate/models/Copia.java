@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.io.Serializable;
 
+/**
+ * Clase que representa una copia de una película
+ */
 @Data
 @Entity
 @Table(name = "Copia")

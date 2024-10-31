@@ -25,6 +25,9 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+/**
+ * Controlador de la vista de añadir película
+ */
 public class NewFilmController implements Initializable {
     @javafx.fxml.FXML
     public Spinner spinnerYear;
@@ -42,16 +45,21 @@ public class NewFilmController implements Initializable {
     private Button btnPlay;
     @javafx.fxml.FXML
     private ImageView ivPoster;
-
-
-    private MediaPlayer mp;
-    private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
-    private Pelicula peli = new Pelicula();
     @javafx.fxml.FXML
     private Slider volume;
     @javafx.fxml.FXML
     private Button btnPause;
 
+    private MediaPlayer mp;
+    private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
+    private Pelicula peli = new Pelicula();
+
+    /**
+     * Inicializa el controlador y configura los elementos de la vista.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar objetos raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Set<String> generos = new HashSet<>();
@@ -65,6 +73,11 @@ public class NewFilmController implements Initializable {
         volume.setValue(RegisteredSession.volumen);
     }
 
+    /**
+     * Maneja la acción de cancelar.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
         if (mp != null) {
@@ -74,6 +87,11 @@ public class NewFilmController implements Initializable {
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
+    /**
+     * Maneja la acción de añadir una película.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void añadir(ActionEvent actionEvent) {
         peli.setTitulo(tvTitle.getText());
@@ -96,6 +114,11 @@ public class NewFilmController implements Initializable {
         Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
+    /**
+     * Maneja la acción de añadir una banda sonora.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void añadirBSO(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -133,6 +156,11 @@ public class NewFilmController implements Initializable {
         }
     }
 
+    /**
+     * Maneja la acción de añadir un poster.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void añadirPoster(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -157,6 +185,11 @@ public class NewFilmController implements Initializable {
         }
     }
 
+    /**
+     * Maneja la acción de reproducir la BSO.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void Play(ActionEvent actionEvent) {
         if (mp != null) {
@@ -169,6 +202,11 @@ public class NewFilmController implements Initializable {
         }
     }
 
+    /**
+     * Maneja la acción de parar la BSO.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void Stop(ActionEvent actionEvent) {
         mp.stop();
@@ -178,6 +216,11 @@ public class NewFilmController implements Initializable {
         RegisteredSession.playButtonSound();
     }
 
+    /**
+     * Maneja la acción de pausar la BSO.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void Pause(ActionEvent actionEvent) {
         mp.pause();

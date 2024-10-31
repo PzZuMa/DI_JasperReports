@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa una película
+ */
 @Data
 @Entity
 @Table(name = "Pelicula")

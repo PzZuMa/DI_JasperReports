@@ -13,6 +13,9 @@ import org.example.retoconjuntohibernate.models.Usuario;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador para manejar las acciones de registro de usuario.
+ */
 public class RegisterController implements Initializable {
 
     @javafx.fxml.FXML
@@ -22,17 +25,33 @@ public class RegisterController implements Initializable {
     @javafx.fxml.FXML
     public PasswordField tvConfirm;
 
+    /**
+     * Inicializa el controlador.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar el objeto raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    /**
+     * Maneja la acción de cancelar el registro.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/login-view.fxml","Login", 250, 350, false);
     }
 
+    /**
+     * Maneja la acción de registrar un usuario.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();

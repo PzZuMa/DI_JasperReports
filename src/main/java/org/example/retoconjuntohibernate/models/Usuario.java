@@ -6,6 +6,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase que representa un usuario
+ */
 @Data
 @Entity
 @Table(name = "Usuario")

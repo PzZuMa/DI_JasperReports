@@ -3,6 +3,9 @@ package org.example.retoconjuntohibernate.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * Clase que se encarga de crear la factoría de sesiones de Hibernate
+ */
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
 

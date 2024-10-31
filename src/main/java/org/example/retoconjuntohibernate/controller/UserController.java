@@ -10,6 +10,9 @@ import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador de la vista de usuario
+ */
 public class UserController implements Initializable {
     @javafx.fxml.FXML
     private TextField ivCopias;
@@ -20,6 +23,12 @@ public class UserController implements Initializable {
     @javafx.fxml.FXML
     private Button btnVolver;
 
+    /**
+     * Inicializa el controlador y configura los elementos de la vista.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar objetos raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CopiaDAO cd = new CopiaDAO(HibernateUtil.getSessionFactory());
@@ -29,6 +38,11 @@ public class UserController implements Initializable {
         ivCopias.setText(String.valueOf(cd.countCopyByUser(RegisteredSession.user)));
     }
 
+    /**
+     * Maneja la acción de volver a la vista anterior.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void volver(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();

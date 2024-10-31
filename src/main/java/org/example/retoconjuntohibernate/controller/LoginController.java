@@ -10,10 +10,12 @@ import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador para manejar las acciones de inicio de sesión.
+ */
 public class LoginController implements Initializable {
     @javafx.fxml.FXML
     private PasswordField tvPwd;
@@ -22,11 +24,22 @@ public class LoginController implements Initializable {
 
     private UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
 
+    /**
+     * Inicializa el controlador.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar el objeto raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    /**
+     * Maneja la acción de inicio de sesión.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -42,12 +55,22 @@ public class LoginController implements Initializable {
         }
     }
 
+    /**
+     * Maneja la acción de registro.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void registrar(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/register-view.fxml","Registro", 250, 350, false);
     }
 
+    /**
+     * Maneja la acción de contraseña olvidada.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void olvidada(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();

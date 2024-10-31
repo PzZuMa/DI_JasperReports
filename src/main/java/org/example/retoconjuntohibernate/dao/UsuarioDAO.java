@@ -13,10 +13,18 @@ import java.util.List;
 public class UsuarioDAO implements DAO<Usuario> {
     private SessionFactory sF;
 
+    /**
+     * Constructor de la clase
+     * @param sessionFactory sesiones Hibernate
+     */
     public UsuarioDAO(SessionFactory sessionFactory) {
         this.sF = sessionFactory;
     }
 
+    /**
+     * Método que busca todos los usuarios de la base de datos
+     * @return lista de usuarios
+     */
     @Override
     public List<Usuario> findAll() {
         try (Session session = sF.openSession()) {
@@ -26,6 +34,11 @@ public class UsuarioDAO implements DAO<Usuario> {
         }
     }
 
+    /**
+     * Método que busca un usuario por su id
+     * @param id id del usuario
+     * @return usuario
+     */
     @Override
     public Usuario findByID(Integer id) {
         try (Session session = sF.openSession()) {
@@ -35,16 +48,28 @@ public class UsuarioDAO implements DAO<Usuario> {
         }
     }
 
+    /**
+     * Método que inserta un usuario en la base de datos
+     * @param user usuario a insertar
+     */
     @Override
     public void insert(Usuario user) {
         sF.inTransaction( session -> session.persist(user));
     }
 
+    /**
+     * Método que elimina un usuario de la base de datos
+     * @param user usuario a eliminar
+     */
     @Override
     public void delete(Usuario user) {
         sF.inTransaction( session -> session.remove(user));
     }
 
+    /**
+     * Método que actualiza un usuario en la base de datos
+     * @param user usuario a actualizar
+     */
     @Override
     public void update(Usuario user) {
         sF.inTransaction( session -> session.merge(user));

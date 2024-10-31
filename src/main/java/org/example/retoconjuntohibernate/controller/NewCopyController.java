@@ -13,6 +13,9 @@ import org.example.retoconjuntohibernate.models.Copia;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Controlador de la vista de añadir copia
+ */
 public class NewCopyController implements Initializable {
     @javafx.fxml.FXML
     public ComboBox cbPeliculas;
@@ -26,6 +29,12 @@ public class NewCopyController implements Initializable {
     private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
     private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
 
+    /**
+     * Inicializa el controlador y configura los elementos de la vista.
+     *
+     * @param url la URL utilizada para resolver rutas relativas para el objeto raíz, o null si no se conoce la URL.
+     * @param resourceBundle el ResourceBundle para localizar objetos raíz, o null si no se ha localizado.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         peliDAO.findAll().forEach(peli -> {
@@ -40,6 +49,11 @@ public class NewCopyController implements Initializable {
         cbSoporte.setOnAction(event -> checkCB());
     }
 
+    /**
+     * Maneja la acción de añadir una copia.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void addCopy(ActionEvent actionEvent) {
         var copia = new Copia();
@@ -60,6 +74,11 @@ public class NewCopyController implements Initializable {
         stage.close();
     }
 
+    /**
+     * Maneja la acción de cancelar.
+     *
+     * @param actionEvent el evento de acción que desencadena este método.
+     */
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
@@ -67,6 +86,9 @@ public class NewCopyController implements Initializable {
         stage.close();
     }
 
+    /**
+     * Comprueba si los ComboBox están seleccionados para habilitar el botón de añadir.
+     */
     private void checkCB() {
         boolean allSelected = (cbPeliculas.getValue() != null && cbEstado.getValue() != null && cbSoporte.getValue() != null);
         if (allSelected) {
