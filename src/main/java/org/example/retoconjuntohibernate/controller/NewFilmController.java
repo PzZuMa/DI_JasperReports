@@ -49,6 +49,8 @@ public class NewFilmController implements Initializable {
     private Pelicula peli = new Pelicula();
     @javafx.fxml.FXML
     private Slider volume;
+    @javafx.fxml.FXML
+    private Button btnPause;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,6 +61,8 @@ public class NewFilmController implements Initializable {
         cbGenero.getItems().addAll(generos);
 
         spinnerYear.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1900, 2025, 2000));
+
+        volume.setValue(RegisteredSession.volumen);
     }
 
     @javafx.fxml.FXML
@@ -109,11 +113,13 @@ public class NewFilmController implements Initializable {
                 btnPlay.setDisable(false);
                 volume.setDisable(false);
 
-                mp.setVolume(volume.getValue());
+                volume.setValue(RegisteredSession.volumen);
+                mp.setVolume(RegisteredSession.volumen);
                 volume.valueProperty().addListener(new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                         mp.setVolume(newValue.doubleValue());
+                        RegisteredSession.volumen = newValue.doubleValue();
                     }
                 });
 
@@ -150,13 +156,26 @@ public class NewFilmController implements Initializable {
     public void Play(ActionEvent actionEvent) {
         if (mp != null) {
             mp.play();
+            btnPlay.setDisable(true);
+            btnStop.setDisable(false);
+            btnPause.setDisable(false);
+        } else {
+            System.err.println("No BSO found");
         }
-        btnStop.setDisable(false);
     }
 
     @javafx.fxml.FXML
     public void Stop(ActionEvent actionEvent) {
         mp.stop();
         btnStop.setDisable(true);
+        btnPlay.setDisable(false);
+        btnPause.setDisable(true);
+    }
+
+    @javafx.fxml.FXML
+    public void Pause(ActionEvent actionEvent) {
+        mp.pause();
+        btnPlay.setDisable(false);
+        btnPause.setDisable(true);
     }
 }

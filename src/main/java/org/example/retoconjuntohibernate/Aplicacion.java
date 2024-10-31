@@ -2,8 +2,10 @@ package org.example.retoconjuntohibernate;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
@@ -35,6 +37,11 @@ public class Aplicacion extends Application {
         ventana.setTitle(title);
         ventana.setScene(scene);
         ventana.setResizable(resizable);
+
+        //Hace que la ventana se centre en la pantalla
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        ventana.setX((screenBounds.getWidth() - anchura) / 2);
+        ventana.setY((screenBounds.getHeight() - altura) / 2);
     }
 
     public static void loadFXModal(String view, String title, Integer anchura, Integer altura, Boolean resizable) {
@@ -46,6 +53,12 @@ public class Aplicacion extends Application {
             stage.setTitle(title);
             stage.setResizable(resizable);
             stage.initModality(Modality.APPLICATION_MODAL);
+
+            //Hace que la ventana se centre en la pantalla
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            stage.setX((screenBounds.getWidth() - anchura) / 2);
+            stage.setY((screenBounds.getHeight() - altura) / 2);
+
             stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();

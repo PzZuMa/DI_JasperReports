@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +16,7 @@ public class UserController implements Initializable {
     @javafx.fxml.FXML
     private TextField ivNombre;
     @javafx.fxml.FXML
-    private PasswordField ivPWD;
+    private TextField ivPWD;
     @javafx.fxml.FXML
     private Button btnVolver;
 

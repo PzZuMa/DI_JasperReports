@@ -35,16 +35,25 @@
                               <Slider fx:id="volume" disable="true" max="1" value="0.5" />
                                  <Button fx:id="btnPlay" disable="true" mnemonicParsing="false" onAction="#Play" styleClass="btnImage">
                                      <graphic>
-                                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                         <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                  <Image url="@../media/play.png" />
                                              </image>
                                          </ImageView>
                                      </graphic>
                                  </Button>
+                              <Button fx:id="btnPause" disable="true" mnemonicParsing="false" onAction="#Pause" styleClass="btnImage">
+                                 <graphic>
+                                    <ImageView fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../media/pause.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
                                  <Button fx:id="btnStop" disable="true" mnemonicParsing="false" onAction="#Stop" styleClass="btnImage">
                                      <graphic>
-                                         <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                         <ImageView fitHeight="50.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                  <Image url="@../media/detener.png" />
                                              </image>

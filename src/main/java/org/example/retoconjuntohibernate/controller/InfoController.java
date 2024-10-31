@@ -44,6 +44,10 @@ public class InfoController implements Initializable {
 
 
     private MediaPlayer mp;
+    @javafx.fxml.FXML
+    private Button btnPlay;
+    @javafx.fxml.FXML
+    private Button btnPause;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -58,40 +62,24 @@ public class InfoController implements Initializable {
         cbEstado.setValue(RegisteredSession.copiaSeleccionada.getEstado());
         cbSoporte.setValue(RegisteredSession.copiaSeleccionada.getSoporte());
 
-//        String bsoPath = "/org/example/retoconjuntohibernate/media/bso/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getBso();
-//        URL bsoUrl = getClass().getResource(bsoPath);
-//        if (bsoUrl != null) {
-//            Media bso = new Media(bsoUrl.toString());
-//            mp = new MediaPlayer(bso);
-//        } else {
-//            System.err.println("BSO not found: " + bsoPath);
-//        }
-
         String bsoPath = "src/main/resources/org/example/retoconjuntohibernate/media/bso/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getBso();
         File bsoFile = new File(bsoPath);
         if (bsoFile.exists()) {
             Media bso = new Media(bsoFile.toURI().toString());
             mp = new MediaPlayer(bso);
 
-            mp.setVolume(volume.getValue());
+            volume.setValue(RegisteredSession.volumen);
+            mp.setVolume(RegisteredSession.volumen);
             volume.valueProperty().addListener(new ChangeListener<Number>() {
                 @Override
                 public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                     mp.setVolume(newValue.doubleValue());
+                    RegisteredSession.volumen = newValue.doubleValue();
                 }
             });
-
         } else {
             System.err.println("BSO not found: " + bsoPath);
         }
-
-//        String posterPath = "/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
-//        URL posterUrl = getClass().getResource(posterPath);
-//        if (posterUrl != null) {
-//            ivPoster.setImage(new Image(posterUrl.toString()));
-//        } else {
-//            System.err.println("Poster not found: " + posterPath);
-//        }
 
         String posterPath = "src/main/resources/org/example/retoconjuntohibernate/media/posters/" + RegisteredSession.copiaSeleccionada.getIdPelicula().getPoster();
         File posterFile = new File(posterPath);
@@ -107,7 +95,7 @@ public class InfoController implements Initializable {
         if (mp != null) {
             mp.stop();
         }
-        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
     @javafx.fxml.FXML
@@ -129,14 +117,16 @@ public class InfoController implements Initializable {
         if (mp != null) {
             mp.stop();
         }
-        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, true);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
     }
 
     @javafx.fxml.FXML
     public void Play(ActionEvent actionEvent) {
         if (mp != null) {
             mp.play();
+            btnPlay.setDisable(true);
             btnStop.setDisable(false);
+            btnPause.setDisable(false);
         } else {
             System.err.println("No BSO found");
         }
@@ -146,5 +136,14 @@ public class InfoController implements Initializable {
     public void Stop(ActionEvent actionEvent) {
         mp.stop();
         btnStop.setDisable(true);
+        btnPlay.setDisable(false);
+        btnPause.setDisable(true);
+    }
+
+    @javafx.fxml.FXML
+    public void Pause(ActionEvent actionEvent) {
+        mp.pause();
+        btnPlay.setDisable(false);
+        btnPause.setDisable(true);
     }
 }
