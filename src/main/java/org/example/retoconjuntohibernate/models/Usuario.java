@@ -18,6 +18,7 @@ public class Usuario implements Serializable {
     private Integer id;
     private String nombre;
     private String contraseña;
+    private Boolean admin;
 
     @OneToMany
     List<Copia> copiasUser = new ArrayList<>();

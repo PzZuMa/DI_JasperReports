@@ -14,6 +14,7 @@ public class RegisteredSession {
     public static Usuario user;
     public static Copia copiaSeleccionada;
 
+
     public static Double volumen = 0.5;
 
     private static final String soundPath = "src/main/resources/org/example/retoconjuntohibernate/media/boton.mp3";

@@ -8,11 +8,6 @@ import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
-import org.example.retoconjuntohibernate.models.*;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
-
 import java.io.IOException;
 
 /**
@@ -26,10 +21,9 @@ public class Aplicacion extends Application {
      * Inicia la aplicación cargando la vista de login
      *
      * @param stage la ventana principal de la aplicación
-     * @throws IOException si no se puede cargar la vista
      */
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage){
         ventana = stage;
         loadFXML("views/login-view.fxml", "Login", 250, 350, false);
         stage.show();

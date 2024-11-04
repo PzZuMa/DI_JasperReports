@@ -22,6 +22,8 @@ public class UserController implements Initializable {
     private TextField ivPWD;
     @javafx.fxml.FXML
     private Button btnVolver;
+    @javafx.fxml.FXML
+    private TextField ivEstado;
 
     /**
      * Inicializa el controlador y configura los elementos de la vista.
@@ -36,6 +38,12 @@ public class UserController implements Initializable {
         ivNombre.setText(RegisteredSession.user.getNombre());
         ivPWD.setText(RegisteredSession.user.getContraseña());
         ivCopias.setText(String.valueOf(cd.countCopyByUser(RegisteredSession.user)));
+
+        if (RegisteredSession.user.getAdmin()) {
+            ivEstado.setText("Administrador");
+        } else {
+            ivEstado.setText("Usuario");
+        }
     }
 
     /**

@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS `Copia` (
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `id_pelicula` FOREIGN KEY (`id_pelicula`) REFERENCES `Pelicula` (`id`),
   CONSTRAINT `id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `Usuario` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DELETE FROM `Copia`;
 INSERT INTO `Copia` (`id`, `id_pelicula`, `id_usuario`, `estado`, `soporte`) VALUES
-	(1, 1, 1, 'bueno', 'DVD'),
+	(1, 1, 1, 'dañado', 'DVD'),
 	(2, 1, 1, 'bueno', 'Blu-ray'),
 	(3, 2, 2, 'dañado', 'DVD'),
 	(4, 3, 1, 'bueno', 'Blu-ray'),
@@ -55,13 +55,14 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   `contraseña` varchar(50) DEFAULT NULL,
+  `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DELETE FROM `Usuario`;
-INSERT INTO `Usuario` (`id`, `nombre`, `contraseña`) VALUES
-	(1, 'juanperez', 'password123'),
-	(2, 'mariagonzalez', 'mypassword');
+INSERT INTO `Usuario` (`id`, `nombre`, `contraseña`, `admin`) VALUES
+	(1, 'juanperez', 'password123', 1),
+	(2, 'mariagonzalez', 'mypassword', 0);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

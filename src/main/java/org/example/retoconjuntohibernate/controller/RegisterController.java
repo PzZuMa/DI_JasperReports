@@ -3,6 +3,7 @@ package org.example.retoconjuntohibernate.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
@@ -24,6 +25,8 @@ public class RegisterController implements Initializable {
     public PasswordField tvPWD;
     @javafx.fxml.FXML
     public PasswordField tvConfirm;
+    @javafx.fxml.FXML
+    private CheckBox cbAdmin;
 
     /**
      * Inicializa el controlador.
@@ -65,6 +68,7 @@ public class RegisterController implements Initializable {
                 Usuario user = new Usuario();
                 user.setNombre(tvUser.getText());
                 user.setContraseña(tvPWD.getText());
+                user.setAdmin(cbAdmin.isSelected());
                 UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
                 ud.insert(user);
                 var alert = new Alert(Alert.AlertType.INFORMATION);

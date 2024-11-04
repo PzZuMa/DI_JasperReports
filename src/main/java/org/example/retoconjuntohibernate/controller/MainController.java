@@ -29,6 +29,8 @@ public class MainController implements Initializable {
     public Button btnDelete;
     @javafx.fxml.FXML
     private Label welcomeUser;
+    @javafx.fxml.FXML
+    private Button btnAdd;
 
     private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
 
@@ -52,6 +54,13 @@ public class MainController implements Initializable {
 
         tableRefresh();
 
+        /**
+         * Si el usuario es administrador, se habilita el botón de añadir una pelicula a la BD.
+         */
+        if (RegisteredSession.user.getAdmin()) {
+            btnAdd.setDisable(false);
+        }
+
         welcomeUser.setText(RegisteredSession.user.getNombre());
 
         /**
@@ -59,9 +68,9 @@ public class MainController implements Initializable {
          * otro para detectar cuando se hace solo un click sobre una fila, para así mostrar los datos de la película con
          * el doble click y habilitar diferentes funciones con un solo click.
          */
-        tableID.setRowFactory(tv -> {
+        tableID.setRowFactory( (tableView) -> {
             TableRow<Copia> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
+            row.setOnMouseClicked( (event) -> {
                 if (event.getClickCount() == 2 && (!row.isEmpty())) {
                     Copia rowData = row.getItem();
                     RegisteredSession.copiaSeleccionada = rowData;
@@ -145,6 +154,6 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public void userInfo(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
-        Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 350, false);
+        Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 400, false);
     }
 }
