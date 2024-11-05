@@ -113,7 +113,7 @@ public class InfoController implements Initializable {
             mpBSO.stop();
         }
         RegisteredSession.playButtonSound();
-        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",900,800, false);
     }
 
     /**
@@ -141,7 +141,7 @@ public class InfoController implements Initializable {
         if (mpBSO != null) {
             mpBSO.stop();
         }
-        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",600,600, false);
+        Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + RegisteredSession.user.getNombre() + "]",900,800, false);
     }
 
     /**

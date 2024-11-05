@@ -21,25 +21,25 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #88d4f5;
-    -fx-text-fill: white;
+    -fx-background-color: #8dabbb;
+    -fx-border-color: black;
 }
 
 .table-cell {
-    -fx-font-size: 14px;
+    -fx-font-size: 16px;
     -fx-border-color: transparent;
     -fx-alignment: center;
     -fx-font-weight: normal;
     -fx-text-fill: #333333;
+    -fx-pref-height: 75px;
 }
 
 .column-header {
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
     -fx-font-weight: bold;
     -fx-background-color: #88d4f5;
-    -fx-text-fill: white;
     -fx-alignment: center;
-    -fx-padding: 10px;
+    -fx-pref-height: 50px;
 }
 
 .column-header:hover {

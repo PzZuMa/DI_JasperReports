@@ -15,15 +15,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="600.0" stylesheets="@../styles/styleMain.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.MainController">
+<BorderPane prefHeight="800.0" prefWidth="900.0" stylesheets="@../styles/styleMain.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.MainController">
    <center>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableID" prefHeight="641.0" prefWidth="821.0">
+            <TableView fx:id="tableID" maxHeight="1.7976931348623157E308" prefHeight="5000.0" prefWidth="5000.0">
               <columns>
-                <TableColumn fx:id="cTitle" prefWidth="272.0" text="TITULO" />
-                  <TableColumn fx:id="cEstado" prefWidth="134.0" text="ESTADO" />
-                  <TableColumn fx:id="cSoporte" prefWidth="124.0" text="SOPORTE" />
+                <TableColumn fx:id="cTitle" prefWidth="175.0" text="TITULO" />
+                  <TableColumn fx:id="cGenre" prefWidth="100.0" text="GÉNERO" />
+                  <TableColumn fx:id="cYear" prefWidth="75.0" text="ESTRENO" />
+                  <TableColumn fx:id="cDirector" prefWidth="150.0" text="DIRECTOR" />
+                  <TableColumn fx:id="cEstado" prefWidth="75.0" text="ESTADO" />
+                  <TableColumn fx:id="cSoporte" prefWidth="100.0" text="SOPORTE" />
               </columns>
                <VBox.margin>
                   <Insets />
@@ -39,7 +42,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="2000.0">
                <children>
-                  <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="821.0">
+                  <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="5000.0">
                     <columnConstraints>
                       <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="300.0" />
                       <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" minWidth="0.0" prefWidth="300.0" />
@@ -95,11 +98,11 @@
    <bottom>
       <VBox alignment="CENTER" prefHeight="75.0" prefWidth="821.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane>
+            <GridPane prefHeight="75.0" prefWidth="5000.0">
                <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="300.0" />
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="300.0" />
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />

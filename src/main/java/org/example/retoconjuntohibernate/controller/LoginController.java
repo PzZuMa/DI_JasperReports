@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
             alert.showAndWait();
         } else {
             RegisteredSession.user = introducido;
-            Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + introducido.getNombre() + "]",600,600, false);
+            Aplicacion.loadFXML("views/main-view.fxml", "MOVIE-UP [User: " + introducido.getNombre() + "]",900,800, false);
         }
     }
 

@@ -8,7 +8,7 @@ import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
 import org.example.retoconjuntohibernate.dao.HibernateUtil;
 import org.example.retoconjuntohibernate.dao.*;
-import org.example.retoconjuntohibernate.models.Copia;
+import org.example.retoconjuntohibernate.models.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,15 +18,21 @@ import java.util.ResourceBundle;
 public class MainController implements Initializable {
 
     @javafx.fxml.FXML
-    public TableView<Copia> tableID;
+    private TableView<Copia> tableID;
     @javafx.fxml.FXML
-    public TableColumn<Copia,String> cTitle;
+    private TableColumn<Copia,String> cTitle;
     @javafx.fxml.FXML
-    public TableColumn<Copia,String> cEstado;
+    private TableColumn<Copia,String> cEstado;
     @javafx.fxml.FXML
-    public TableColumn<Copia,String> cSoporte;
+    private TableColumn<Copia,String> cSoporte;
     @javafx.fxml.FXML
-    public Button btnDelete;
+    private TableColumn<Copia,String> cDirector;
+    @javafx.fxml.FXML
+    private TableColumn<Copia,String> cGenre;
+    @javafx.fxml.FXML
+    private TableColumn<Copia,String> cYear;
+    @javafx.fxml.FXML
+    private Button btnDelete;
     @javafx.fxml.FXML
     private Label welcomeUser;
     @javafx.fxml.FXML
@@ -44,6 +50,15 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         cTitle.setCellValueFactory( (row) -> {
             return new SimpleStringProperty(row.getValue().getIdPelicula().getTitulo());
+        });
+        cGenre.setCellValueFactory( (row) -> {
+            return new SimpleStringProperty(row.getValue().getIdPelicula().getGenero());
+        });
+        cDirector.setCellValueFactory( (row) -> {
+            return new SimpleStringProperty(row.getValue().getIdPelicula().getDirector());
+        });
+        cYear.setCellValueFactory( (row) -> {
+            return new SimpleStringProperty(row.getValue().getIdPelicula().getAño().toString());
         });
         cEstado.setCellValueFactory( (row) -> {
             return new SimpleStringProperty(row.getValue().getEstado());

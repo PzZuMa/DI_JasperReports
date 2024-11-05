@@ -76,7 +76,7 @@ public class RegisterController implements Initializable {
                 alert.setHeaderText("Usuario registrado correctamente");
                 alert.showAndWait();
                 RegisteredSession.user = user;
-                Aplicacion.loadFXML("views/main-view.fxml","MOVIE-UP [User: " + user.getNombre() + "]", 600, 600, false);
+                Aplicacion.loadFXML("views/main-view.fxml","MOVIE-UP [User: " + user.getNombre() + "]", 900,800, false);
             } else {
                 var alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error");
