@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -119,6 +120,9 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <tooltip>
+                        <Tooltip text="Borrar copia." />
+                     </tooltip>
                   </Button>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#insertarCopia" styleClass="btn" GridPane.columnIndex="1">
                      <graphic>
@@ -131,6 +135,9 @@
                      <padding>
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
+                     <tooltip>
+                        <Tooltip text="Agregar copia." />
+                     </tooltip>
                   </Button>
                   <Button fx:id="btnAdd" contentDisplay="TOP" disable="true" mnemonicParsing="false" onAction="#añadirPelicula" styleClass="btn" textAlignment="CENTER" GridPane.columnIndex="2">
                      <graphic>
@@ -143,6 +150,9 @@
                      <padding>
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
+                     <tooltip>
+                        <Tooltip text="Agregar pelicula." />
+                     </tooltip>
                   </Button>
                </children>
             </GridPane>

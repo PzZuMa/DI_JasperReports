@@ -228,4 +228,10 @@ public class NewFilmController implements Initializable {
         btnPause.setDisable(true);
         RegisteredSession.playButtonSound();
     }
+
+    public void userInfo(ActionEvent actionEvent) {
+    }
+
+    public void logout(ActionEvent actionEvent) {
+    }
 }
