@@ -90,7 +90,7 @@ public class MainController implements Initializable {
                     Copia rowData = row.getItem();
                     RegisteredSession.copiaSeleccionada = rowData;
                     RegisteredSession.playButtonSound();
-                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 700, 700, false);
+                    Aplicacion.loadFXML("views/info-view.fxml", "Información", 900, 800, false);
                 }
             });
             return row;
@@ -158,7 +158,7 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     public void añadirPelicula(ActionEvent actionEvent) {
         RegisteredSession.playButtonSound();
-        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva película", 700, 700, false);
+        Aplicacion.loadFXML("views/newfilm-view.fxml", "Nueva película", 900, 800, false);
     }
 
     /**

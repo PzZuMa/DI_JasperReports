@@ -48,6 +48,8 @@ public class InfoController implements Initializable {
     private Button btnPause;
 
     private MediaPlayer mpBSO;
+    @javafx.fxml.FXML
+    private Label welcomeUser;
 
     /**
      * Inicializa el controlador y configura los elementos de la vista con los datos de la película seleccionada.
@@ -186,5 +188,18 @@ public class InfoController implements Initializable {
         btnPlay.setDisable(false);
         btnPause.setDisable(true);
         RegisteredSession.playButtonSound();
+    }
+
+    @javafx.fxml.FXML
+    public void userInfo(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
+        Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 400, false);
+    }
+
+    @javafx.fxml.FXML
+    public void logout(ActionEvent actionEvent) {
+        RegisteredSession.user = null;
+        RegisteredSession.playButtonSound();
+        Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
     }
 }

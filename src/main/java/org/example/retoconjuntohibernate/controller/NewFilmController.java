@@ -230,8 +230,13 @@ public class NewFilmController implements Initializable {
     }
 
     public void userInfo(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
+        Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 400, false);
     }
 
     public void logout(ActionEvent actionEvent) {
+        RegisteredSession.user = null;
+        RegisteredSession.playButtonSound();
+        Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
     }
 }
