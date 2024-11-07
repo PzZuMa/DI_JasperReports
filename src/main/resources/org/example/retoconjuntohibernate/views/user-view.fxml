@@ -36,13 +36,13 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="ivPWD" />
+                  <TextField fx:id="ivPWD" editable="false" />
                   <Label text="Status" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="ivEstado" />
+                  <TextField fx:id="ivEstado" editable="false" />
                   <Label text="Nº Copias:" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />

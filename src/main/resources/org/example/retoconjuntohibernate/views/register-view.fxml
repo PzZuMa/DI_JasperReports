@@ -57,14 +57,17 @@
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </VBox.margin>
             </GridPane>
-            <CheckBox fx:id="cbAdmin" mnemonicParsing="false" styleClass="cbAdmin" text="Administrador" />
+            <CheckBox fx:id="cbAdmin" mnemonicParsing="false" styleClass="cbAdmin" text="Administrador">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin></CheckBox>
             <HBox alignment="CENTER" spacing="25.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#registrar" styleClass="btnRegistrar" text="Registrarme" />
                   <Button mnemonicParsing="false" onAction="#cancelar" prefWidth="80.0" styleClass="btnCancelar" text="Cancelar" />
                </children>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
             </HBox>
          </children>
