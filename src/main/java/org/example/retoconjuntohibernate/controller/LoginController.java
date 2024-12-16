@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
@@ -22,7 +22,7 @@ public class LoginController implements Initializable {
     @javafx.fxml.FXML
     private TextField tvUser;
 
-    private UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
+    private UsuarioDAO ud = new UsuarioDAO(Hibernate_Util.getSessionFactory());
 
     /**
      * Inicializa el controlador.

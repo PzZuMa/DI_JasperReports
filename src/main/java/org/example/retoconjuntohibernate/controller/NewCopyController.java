@@ -4,9 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.PeliculaDAO;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.models.Copia;
@@ -26,8 +25,8 @@ public class NewCopyController implements Initializable {
     @javafx.fxml.FXML
     public Button btnIntroducir;
 
-    private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
-    private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
+    private final PeliculaDAO peliDAO = new PeliculaDAO(Hibernate_Util.getSessionFactory());
+    private final CopiaDAO copiaDAO = new CopiaDAO(Hibernate_Util.getSessionFactory());
 
     /**
      * Inicializa el controlador y configura los elementos de la vista.

@@ -1,0 +1,144 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="informeMalEstado" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78a8dd1b-5abb-4218-92bf-dc56357ed536">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PeliculasRetoAdapter"/>
+	<query language="SQL"><![CDATA[SELECT * FROM Copia AS C INNER JOIN Pelicula AS P ON C.id_pelicula = P.id WHERE estado LIKE "dañado"]]></query>
+	<field name="id" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Copia"/>
+	</field>
+	<field name="id_pelicula" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_pelicula"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_pelicula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Copia"/>
+	</field>
+	<field name="id_usuario" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id_usuario"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_usuario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Copia"/>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Copia"/>
+	</field>
+	<field name="soporte" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="soporte"/>
+		<property name="com.jaspersoft.studio.field.label" value="soporte"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Copia"/>
+	</field>
+	<field name="COLUMN_6" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.label" value="titulo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="genero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="genero"/>
+		<property name="com.jaspersoft.studio.field.label" value="genero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="año" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="año"/>
+		<property name="com.jaspersoft.studio.field.label" value="año"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="director" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="director"/>
+		<property name="com.jaspersoft.studio.field.label" value="director"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="bso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bso"/>
+		<property name="com.jaspersoft.studio.field.label" value="bso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<field name="poster" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="poster"/>
+		<property name="com.jaspersoft.studio.field.label" value="poster"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="Pelicula"/>
+	</field>
+	<group name="id">
+		<expression><![CDATA[$F{id}]]></expression>
+	</group>
+	<group name="id_pelicula">
+		<expression><![CDATA[$F{id_pelicula}]]></expression>
+	</group>
+	<group name="id_usuario">
+		<expression><![CDATA[$F{id_usuario}]]></expression>
+	</group>
+	<group name="estado">
+		<expression><![CDATA[$F{estado}]]></expression>
+	</group>
+	<group name="soporte">
+		<expression><![CDATA[$F{soporte}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="bb71e701-51e1-4ceb-89c3-e20ba5da5734" mode="Opaque" x="-20" y="-20" width="595" height="99" forecolor="#E4EEF7" backcolor="#30596E" fontName="SansSerif" fontSize="30.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[MOVIE-UP]]></text>
+		</element>
+	</title>
+	<pageHeader height="2" splitType="Stretch"/>
+	<columnHeader height="34" splitType="Stretch">
+		<element kind="staticText" uuid="35bfea20-ec8c-4112-823e-87c0dea55ed9" mode="Opaque" x="180" y="-2" width="200" height="30" backcolor="#88D4F5" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[ESTADO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a677576-90ae-4e78-8f8f-478ea045fe24"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="fde86164-78e4-40ed-ae7f-6fb2f3ab1100" mode="Opaque" x="380" y="-2" width="194" height="30" backcolor="#88D4F5" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[SOPORTE]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5245fc1a-6be3-4ad7-93f0-c8ef2a254500"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="59426482-aabe-4ce6-aee7-ca5e7a8f294a" mode="Opaque" x="-19" y="-2" width="199" height="30" backcolor="#88D4F5" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[TITULO]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6aafd72-2c87-41db-bd2d-9b461018c3f9"/>
+			<box>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<element kind="textField" uuid="2f0c69f3-22f6-49f9-a3fb-ff8ed7ac883f" x="180" y="-2" width="200" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{estado}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a677576-90ae-4e78-8f8f-478ea045fe24"/>
+			</element>
+			<element kind="textField" uuid="dda46382-8743-4fcd-b2b2-47862f686a29" x="380" y="-2" width="193" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{soporte}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5245fc1a-6be3-4ad7-93f0-c8ef2a254500"/>
+			</element>
+			<element kind="textField" uuid="aece342a-cd45-47c1-9579-5035f1cc95f4" x="-19" y="-2" width="199" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{titulo}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e6aafd72-2c87-41db-bd2d-9b461018c3f9"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

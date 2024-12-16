@@ -9,7 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.models.Copia;
 import javafx.scene.media.Media;
@@ -125,7 +125,7 @@ public class InfoController implements Initializable {
      */
     @javafx.fxml.FXML
     public void save(ActionEvent actionEvent) {
-        CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
+        CopiaDAO copiaDAO = new CopiaDAO(Hibernate_Util.getSessionFactory());
 
         Copia copia = new Copia();
         copia.setId(RegisteredSession.copiaSeleccionada.getId());

@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.example.retoconjuntohibernate.Aplicacion;
 import org.example.retoconjuntohibernate.dao.CopiaDAO;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.*;
 import org.example.retoconjuntohibernate.models.*;
 import java.net.URL;
@@ -38,7 +38,7 @@ public class MainController implements Initializable {
     @javafx.fxml.FXML
     private Button btnAdd;
 
-    private final CopiaDAO copiaDAO = new CopiaDAO(HibernateUtil.getSessionFactory());
+    private final CopiaDAO copiaDAO = new CopiaDAO(Hibernate_Util.getSessionFactory());
 
     /**
      * Inicializa el controlador y configura las columnas de la tabla y los listeners.

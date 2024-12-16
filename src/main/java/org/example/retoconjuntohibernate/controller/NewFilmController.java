@@ -11,7 +11,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
 import org.example.retoconjuntohibernate.Aplicacion;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.PeliculaDAO;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.models.Pelicula;
@@ -51,7 +51,7 @@ public class NewFilmController implements Initializable {
     private Button btnPause;
 
     private MediaPlayer mp;
-    private final PeliculaDAO peliDAO = new PeliculaDAO(HibernateUtil.getSessionFactory());
+    private final PeliculaDAO peliDAO = new PeliculaDAO(Hibernate_Util.getSessionFactory());
     private Pelicula peli = new Pelicula();
 
     /**

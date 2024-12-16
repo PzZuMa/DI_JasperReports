@@ -7,7 +7,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.example.retoconjuntohibernate.Aplicacion;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
+import org.example.retoconjuntohibernate.dao.Hibernate_Util;
 import org.example.retoconjuntohibernate.dao.RegisteredSession;
 import org.example.retoconjuntohibernate.dao.UsuarioDAO;
 import org.example.retoconjuntohibernate.models.Usuario;
@@ -69,7 +69,7 @@ public class RegisterController implements Initializable {
                 user.setNombre(tvUser.getText());
                 user.setContraseña(tvPWD.getText());
                 user.setAdmin(cbAdmin.isSelected());
-                UsuarioDAO ud = new UsuarioDAO(HibernateUtil.getSessionFactory());
+                UsuarioDAO ud = new UsuarioDAO(Hibernate_Util.getSessionFactory());
                 ud.insert(user);
                 var alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Registro");

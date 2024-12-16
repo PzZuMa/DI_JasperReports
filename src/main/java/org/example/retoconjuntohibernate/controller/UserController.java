@@ -1,13 +1,14 @@
 package org.example.retoconjuntohibernate.controller;
 
+import com.mysql.cj.jdbc.JdbcConnection;
 import javafx.event.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.example.retoconjuntohibernate.dao.CopiaDAO;
-import org.example.retoconjuntohibernate.dao.HibernateUtil;
-import org.example.retoconjuntohibernate.dao.RegisteredSession;
+import org.example.retoconjuntohibernate.dao.*;
+
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
 /**
@@ -33,7 +34,7 @@ public class UserController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CopiaDAO cd = new CopiaDAO(HibernateUtil.getSessionFactory());
+        CopiaDAO cd = new CopiaDAO(Hibernate_Util.getSessionFactory());
 
         ivNombre.setText(RegisteredSession.user.getNombre());
         ivPWD.setText(RegisteredSession.user.getContraseña());
@@ -56,5 +57,11 @@ public class UserController implements Initializable {
         RegisteredSession.playButtonSound();
         Stage stage = (Stage) btnVolver.getScene().getWindow();
         stage.close();
+    }
+
+    @javafx.fxml.FXML
+    public void mostrarListado(ActionEvent actionEvent) {
+        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
+        rs.mostrarInformeListadoPeliculas();
     }
 }
