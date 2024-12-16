@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="800.0" prefWidth="900.0" stylesheets="@../styles/styleInfo.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.InfoController">
+<BorderPane prefHeight="800.0" prefWidth="900.0" stylesheets="@../styles/styleInfo.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retoconjuntohibernate.controller.InfoController">
    <center>
       <VBox alignment="CENTER" prefHeight="727.0" prefWidth="971.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -85,6 +85,11 @@
                         <ComboBox fx:id="cbEstado" maxWidth="1.7976931348623157E308" styleClass="comboBox" />
                         <Label text="Soporte" />
                         <ComboBox fx:id="cbSoporte" maxWidth="1.7976931348623157E308" prefWidth="150.0" styleClass="comboBox" />
+                        <HBox alignment="CENTER" fillHeight="false" prefHeight="60.0" prefWidth="200.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#mostrarInforme" styleClass="btn" text="Mostrar y generar informe" />
+                           </children>
+                        </HBox>
                            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0" spacing="10.0">
                                <children>
                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#salir" prefHeight="25.0" prefWidth="100.0" styleClass="btn" text="Volver" textAlignment="CENTER" />

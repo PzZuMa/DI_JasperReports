@@ -171,4 +171,22 @@ public class MainController implements Initializable {
         RegisteredSession.playButtonSound();
         Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 400, false);
     }
+
+    @javafx.fxml.FXML
+    public void informeMasCopias(ActionEvent actionEvent) {
+        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
+        rs.informePeliculasMasCopias();
+    }
+
+    @javafx.fxml.FXML
+    public void informeDanadas(ActionEvent actionEvent) {
+        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
+        rs.informePeliculasDanadas();
+    }
+
+    @javafx.fxml.FXML
+    public void informePeliculas(ActionEvent actionEvent) {
+        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
+        rs.informeListadoPeliculas();
+    }
 }

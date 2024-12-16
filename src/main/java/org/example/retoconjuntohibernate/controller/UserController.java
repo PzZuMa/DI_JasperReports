@@ -56,10 +56,4 @@ public class UserController implements Initializable {
         Stage stage = (Stage) btnVolver.getScene().getWindow();
         stage.close();
     }
-
-    @javafx.fxml.FXML
-    public void mostrarListado(ActionEvent actionEvent) {
-        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
-        rs.informeListadoPeliculas();
-    }
 }

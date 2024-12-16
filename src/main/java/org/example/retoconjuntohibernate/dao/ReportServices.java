@@ -5,6 +5,7 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import org.example.retoconjuntohibernate.models.Copia;
 
 import java.sql.Connection;
 import java.util.HashMap;
@@ -46,12 +47,12 @@ public class ReportServices {
         }
     }
 
-    public static void informeInfoCopia(Long id) {
+    public static void informeInfoCopia(Copia copy) {
         var params = new HashMap();
-        params.put("copia_seleccionada", id);
+        params.put("copia_seleccionada", copy.getId());
         try {
             JasperPrint jp = JasperFillManager.fillReport("H4_InfoCopia.jasper", params, conn);
-            JasperExportManager.exportReportToPdfFile(jp, "H4_InfoCopia.pdf");
+            JasperExportManager.exportReportToPdfFile(jp, "H4_Info"+copy.getIdPelicula().getTitulo()+".pdf");
             JasperViewer.viewReport(jp, false);
         } catch (JRException e) {
             e.printStackTrace();

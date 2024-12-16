@@ -8,9 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.example.retoconjuntohibernate.Aplicacion;
-import org.example.retoconjuntohibernate.dao.CopiaDAO;
-import org.example.retoconjuntohibernate.dao.Hibernate_Util;
-import org.example.retoconjuntohibernate.dao.RegisteredSession;
+import org.example.retoconjuntohibernate.dao.*;
 import org.example.retoconjuntohibernate.models.Copia;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -201,5 +199,11 @@ public class InfoController implements Initializable {
         RegisteredSession.user = null;
         RegisteredSession.playButtonSound();
         Aplicacion.loadFXML("views/login-view.fxml", "Login", 250, 350, false);
+    }
+
+    @javafx.fxml.FXML
+    public void mostrarInforme(ActionEvent actionEvent) {
+        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
+        rs.informeInfoCopia(RegisteredSession.copiaSeleccionada);
     }
 }
