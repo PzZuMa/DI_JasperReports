@@ -21,22 +21,22 @@ public class ReportServices {
         }
     }
 
-    public static void mostrarInforme() {
-        try {
-            generarInforme(hemisferio);
-            JasperPrint jp = JasperFillManager.fillReport("starmap.jasper", params, conn);
-            JasperViewer.viewReport(jp, false);
-        } catch (JRException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void generarInforme() {
-        try {
-            JasperPrint jp = JasperFillManager.fillReport("starmap.jasper", params, conn);
-            JasperExportManager.exportReportToPdfFile(jp, "starmap"+hemisferio+".pdf");
-        } catch (JRException e) {
-            e.printStackTrace();
-        }
-    }
+//    public static void mostrarInforme() {
+//        try {
+//            generarInforme(hemisferio);
+//            JasperPrint jp = JasperFillManager.fillReport("starmap.jasper", params, conn);
+//            JasperViewer.viewReport(jp, false);
+//        } catch (JRException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public static void generarInforme() {
+//        try {
+//            JasperPrint jp = JasperFillManager.fillReport("starmap.jasper", params, conn);
+//            JasperExportManager.exportReportToPdfFile(jp, "starmap"+hemisferio+".pdf");
+//        } catch (JRException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
