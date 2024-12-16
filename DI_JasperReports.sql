@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `Pelicula` (
   `id` int NOT NULL AUTO_INCREMENT,
   `titulo` varchar(50) DEFAULT NULL,
   `genero` varchar(50) DEFAULT NULL,
-  `año` year DEFAULT NULL,
+  `año` varchar(50) DEFAULT NULL,
   `descripcion` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `director` varchar(50) DEFAULT NULL,
   `bso` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,

@@ -1,6 +1,5 @@
 package org.example.retoconjuntohibernate.controller;
 
-import com.mysql.cj.jdbc.JdbcConnection;
 import javafx.event.*;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -8,7 +7,6 @@ import javafx.stage.Stage;
 import org.example.retoconjuntohibernate.dao.*;
 
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 
 /**
@@ -62,6 +60,6 @@ public class UserController implements Initializable {
     @javafx.fxml.FXML
     public void mostrarListado(ActionEvent actionEvent) {
         ReportServices rs = new ReportServices(JDBC_Util.getConnection());
-        rs.mostrarInformeListadoPeliculas();
+        rs.informeListadoPeliculas();
     }
 }
