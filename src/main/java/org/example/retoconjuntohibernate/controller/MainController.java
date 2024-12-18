@@ -39,6 +39,8 @@ public class MainController implements Initializable {
     private Button btnAdd;
 
     private final CopiaDAO copiaDAO = new CopiaDAO(Hibernate_Util.getSessionFactory());
+    @javafx.fxml.FXML
+    private Button btnInformes;
 
     /**
      * Inicializa el controlador y configura las columnas de la tabla y los listeners.
@@ -172,21 +174,10 @@ public class MainController implements Initializable {
         Aplicacion.loadFXModal("views/user-view.fxml", "Información de usuario", 200, 400, false);
     }
 
-    @javafx.fxml.FXML
-    public void informeMasCopias(ActionEvent actionEvent) {
-        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
-        rs.informePeliculasMasCopias();
-    }
 
     @javafx.fxml.FXML
-    public void informeDanadas(ActionEvent actionEvent) {
-        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
-        rs.informePeliculasDanadas();
-    }
-
-    @javafx.fxml.FXML
-    public void informePeliculas(ActionEvent actionEvent) {
-        ReportServices rs = new ReportServices(JDBC_Util.getConnection());
-        rs.informeListadoPeliculas();
+    public void abrirInformes(ActionEvent actionEvent) {
+        RegisteredSession.playButtonSound();
+        Aplicacion.loadFXModal("views/informes-view.fxml","Informes disponibles", 300, 150, false);
     }
 }
